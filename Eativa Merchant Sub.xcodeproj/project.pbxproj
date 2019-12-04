@@ -50,6 +50,7 @@
 		939DF090238FDE830062168B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DF08F238FDE830062168B /* APIService.swift */; };
 		939DF092238FDEE00062168B /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DF091238FDEE00062168B /* CurrentUser.swift */; };
 		939DF094238FDF020062168B /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DF093238FDF020062168B /* Defaults.swift */; };
+		93C023B8239766B100A44973 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C023B7239766B100A44973 /* Register.storyboard */; };
 		93C6F148238EB09300854376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C6F147238EB09300854376 /* AppDelegate.swift */; };
 		93C6F14A238EB09300854376 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C6F149238EB09300854376 /* SceneDelegate.swift */; };
 		93C6F14F238EB09300854376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C6F14D238EB09300854376 /* Main.storyboard */; };
@@ -115,6 +116,7 @@
 		939DF08F238FDE830062168B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		939DF091238FDEE00062168B /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		939DF093238FDF020062168B /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		93C023B7239766B100A44973 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		93C6F144238EB09300854376 /* Eativa Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eativa Merchant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C6F147238EB09300854376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93C6F149238EB09300854376 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -321,6 +323,38 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		93C023B32397665300A44973 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				93C023B42397666100A44973 /* View */,
+				93C023B52397666800A44973 /* ViewModel */,
+				93C023B62397666D00A44973 /* ViewController */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		93C023B42397666100A44973 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93C023B7239766B100A44973 /* Register.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93C023B52397666800A44973 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		93C023B62397666D00A44973 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		93C6F13B238EB09300854376 = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +425,7 @@
 		93D2E0CB238FC27D005ABDBF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93C023B32397665300A44973 /* Register */,
 				9375EE2A2394FBE000BDDBA4 /* QRScanner */,
 				939BF30A2392112A00D74D1C /* Login */,
 				9314EA37238FE77A00EB6492 /* OrderDetail */,
@@ -532,6 +567,7 @@
 				93C6F16A238EBDF500854376 /* MasterTypeCell.xib in Resources */,
 				935C0DA12390CDE20085EC73 /* PickerCell.xib in Resources */,
 				939BF30F239211BA00D74D1C /* Login.storyboard in Resources */,
+				93C023B8239766B100A44973 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
