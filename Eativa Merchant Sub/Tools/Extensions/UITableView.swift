@@ -21,5 +21,5 @@ extension UITableView {
     func scrollToBottom() {
         let maxContentOffsetY = contentSize.height - frame.height + contentInset.bottom
         setContentOffset(CGPoint(x: 0, y: maxContentOffsetY), animated: true)
-    }
+    } 
 }
