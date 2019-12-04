@@ -1,0 +1,32 @@
+PODS:
+  - CryptoSwift (0.15.0)
+  - PusherSwift (7.2.0):
+    - CryptoSwift (~> 0.9)
+    - ReachabilitySwift (= 4.3.0)
+    - Starscream (~> 3.0.5)
+  - PushNotifications (2.1.2)
+  - ReachabilitySwift (4.3.0)
+  - Starscream (3.0.6)
+
+DEPENDENCIES:
+  - PusherSwift
+  - PushNotifications
+
+SPEC REPOS:
+  trunk:
+    - CryptoSwift
+    - PusherSwift
+    - PushNotifications
+    - ReachabilitySwift
+    - Starscream
+
+SPEC CHECKSUMS:
+  CryptoSwift: 769f58a9e89f64e8796c2e59ce5f002dc81a2438
+  PusherSwift: a5369a01e8a9106b4897e9186265af1426726062
+  PushNotifications: 3d1ac73f4e1e9dc3de8fa8319e3e53bd00be47dc
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+
+PODFILE CHECKSUM: e89708d59f5e69c1c6394d358b02df83e2a14181
+
+COCOAPODS: 1.8.4

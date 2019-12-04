@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="KGk-i7-Jjw" customClass="ConfirmationButtonCell" customModule="Eativa_Merchant" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="941" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="941" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Z5l-xl-l8Y">
+                        <rect key="frame" x="20" y="30" width="901" height="45"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0M-fx-01v">
+                                <rect key="frame" x="0.0" y="0.0" width="440.5" height="45"/>
+                                <color key="backgroundColor" red="0.85363706628683256" green="0.40784819953943918" blue="0.076931799084691319" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Decline"/>
+                                <connections>
+                                    <action selector="declineBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nXa-CN-jmo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjG-KD-CCe">
+                                <rect key="frame" x="460.5" y="0.0" width="440.5" height="45"/>
+                                <color key="backgroundColor" red="0.85882352941176465" green="0.89411764705882346" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="acceptBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="T11-m0-x0L"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="lSx-VL-8Lm"/>
+                        </constraints>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4N-Yu-FOE">
+                        <rect key="frame" x="20" y="95" width="901" height="45"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="xFc-5B-Eoj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Suggest Pick  Up Time"/>
+                        <connections>
+                            <action selector="suggestTimeBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9cK-Ge-LzF"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="t4N-Yu-FOE" firstAttribute="trailing" secondItem="Z5l-xl-l8Y" secondAttribute="trailing" id="5dc-le-xBA"/>
+                    <constraint firstAttribute="bottom" secondItem="t4N-Yu-FOE" secondAttribute="bottom" constant="20" id="A0W-cg-e3V"/>
+                    <constraint firstItem="t4N-Yu-FOE" firstAttribute="top" secondItem="Z5l-xl-l8Y" secondAttribute="bottom" constant="20" id="O9J-dM-U0h"/>
+                    <constraint firstAttribute="trailing" secondItem="Z5l-xl-l8Y" secondAttribute="trailing" constant="20" id="Uk4-e7-ViS"/>
+                    <constraint firstItem="Z5l-xl-l8Y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="cCe-Er-opC"/>
+                    <constraint firstItem="t4N-Yu-FOE" firstAttribute="leading" secondItem="Z5l-xl-l8Y" secondAttribute="leading" id="ekQ-9e-jAZ"/>
+                    <constraint firstItem="Z5l-xl-l8Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="twY-jG-o0Z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="suggestButton" destination="t4N-Yu-FOE" id="2YM-kj-bLp"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="98.4375"/>
+        </tableViewCell>
+    </objects>
+</document>

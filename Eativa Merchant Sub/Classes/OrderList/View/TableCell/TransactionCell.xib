@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="KGk-i7-Jjw" customClass="TransactionCell" customModule="Eativa_Merchant_Sub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bp2-TX-f7s">
+                        <rect key="frame" x="393.5" y="0.0" width="20.5" height="150"/>
+                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="25" id="U7j-Ef-nmk"/>
+                        </constraints>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gRM-mk-jDZ">
+                        <rect key="frame" x="300.5" y="20" width="83" height="73.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Up Time:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="6SD-V1-qC1">
+                                <rect key="frame" x="0.0" y="0.0" width="83" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23:59" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7B6-56-mNX">
+                                <rect key="frame" x="0.0" y="35" width="83" height="38.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Cdv-35-CyA">
+                        <rect key="frame" x="20" y="20" width="248.5" height="110"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frederic Orlando - 085945152252" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hv0-FY-lx2">
+                                <rect key="frame" x="0.0" y="0.0" width="248.5" height="59.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order No: Avyxde | Rp. 200.000" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Vht-Ts-Fme">
+                                <rect key="frame" x="0.0" y="65.5" width="248.5" height="21.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="29 October 2019 | Order Time : 10:50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="MmW-4a-1Qp">
+                                <rect key="frame" x="0.0" y="93" width="248.5" height="17"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gRM-mk-jDZ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.2" id="1RY-Y6-CJZ"/>
+                    <constraint firstItem="Bp2-TX-f7s" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.05" priority="999" id="3cg-uL-6zi"/>
+                    <constraint firstAttribute="bottom" secondItem="Bp2-TX-f7s" secondAttribute="bottom" id="5qn-8f-dD5"/>
+                    <constraint firstItem="Bp2-TX-f7s" firstAttribute="leading" secondItem="gRM-mk-jDZ" secondAttribute="trailing" constant="10" id="90g-gj-qJd"/>
+                    <constraint firstItem="Cdv-35-CyA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="CDi-Qc-0Vo"/>
+                    <constraint firstItem="Cdv-35-CyA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.6" id="dQ5-JT-OKx"/>
+                    <constraint firstAttribute="bottom" secondItem="Cdv-35-CyA" secondAttribute="bottom" constant="20" id="fHq-MW-7Ym"/>
+                    <constraint firstItem="Cdv-35-CyA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="i3w-ox-Zw0"/>
+                    <constraint firstItem="gRM-mk-jDZ" firstAttribute="top" secondItem="Cdv-35-CyA" secondAttribute="top" id="qqk-GQ-KfS"/>
+                    <constraint firstItem="Bp2-TX-f7s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="v3O-Jm-M4g"/>
+                    <constraint firstAttribute="trailing" secondItem="Bp2-TX-f7s" secondAttribute="trailing" id="w9W-6P-Vp9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="colorView" destination="Bp2-TX-f7s" id="38v-1K-HLo"/>
+                <outlet property="creationDateLbl" destination="MmW-4a-1Qp" id="GfJ-qw-MJd"/>
+                <outlet property="nameAndPhoneLbl" destination="hv0-FY-lx2" id="Seh-ic-qkc"/>
+                <outlet property="orderNoAndPriceLbl" destination="Vht-Ts-Fme" id="e0Q-UN-RWH"/>
+                <outlet property="pickUpTimeLbl" destination="7B6-56-mNX" id="Np7-h1-9kS"/>
+            </connections>
+            <point key="canvasLocation" x="155.07246376811597" y="114.50892857142857"/>
+        </tableViewCell>
+    </objects>
+</document>

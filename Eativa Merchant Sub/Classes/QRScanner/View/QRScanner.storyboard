@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P7e-we-ZNw">
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scanner View Controller-->
+        <scene sceneID="tqa-f4-ind">
+            <objects>
+                <viewController id="P7e-we-ZNw" customClass="QRScannerViewController" customModule="Eativa_Merchant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bl7-qg-EBL">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fe7-4d-bSu" customClass="QRScannerView" customModule="Eativa_Merchant" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Indicator QR" translatesAutoresizingMaskIntoConstraints="NO" id="wp6-7t-1Ew">
+                                        <rect key="frame" x="558" y="387" width="250" height="250"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="4wt-X9-IUL"/>
+                                            <constraint firstAttribute="width" secondItem="wp6-7t-1Ew" secondAttribute="height" multiplier="1:1" id="GKC-CN-icI"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wp6-7t-1Ew" firstAttribute="centerY" secondItem="fe7-4d-bSu" secondAttribute="centerY" id="cXe-e4-ULK"/>
+                                    <constraint firstItem="wp6-7t-1Ew" firstAttribute="centerX" secondItem="fe7-4d-bSu" secondAttribute="centerX" id="dd3-aE-O5b"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqr-1b-0FP">
+                                <rect key="frame" x="20" y="5.5" width="45" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="A9c-vt-SKA"/>
+                                    <constraint firstAttribute="width" secondItem="oqr-1b-0FP" secondAttribute="height" multiplier="1:1" id="kuU-tX-60d"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="chevron.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backBtnPressed:" destination="P7e-we-ZNw" eventType="touchUpInside" id="RuH-Gj-9V9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fe7-4d-bSu" firstAttribute="top" secondItem="bl7-qg-EBL" secondAttribute="top" id="Cih-eK-0mn"/>
+                            <constraint firstAttribute="trailing" secondItem="fe7-4d-bSu" secondAttribute="trailing" id="L78-rn-EUX"/>
+                            <constraint firstItem="oqr-1b-0FP" firstAttribute="leading" secondItem="eYy-Q4-Agn" secondAttribute="leading" constant="20" id="RZf-XU-5aF"/>
+                            <constraint firstAttribute="bottom" secondItem="fe7-4d-bSu" secondAttribute="bottom" id="SPI-9H-fho"/>
+                            <constraint firstItem="fe7-4d-bSu" firstAttribute="leading" secondItem="bl7-qg-EBL" secondAttribute="leading" id="U8N-kj-GIU"/>
+                            <constraint firstItem="oqr-1b-0FP" firstAttribute="top" secondItem="eYy-Q4-Agn" secondAttribute="top" constant="5" id="v40-P7-YPM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eYy-Q4-Agn"/>
+                    </view>
+                    <connections>
+                        <outlet property="scannerView" destination="fe7-4d-bSu" id="ijX-H4-qNe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TsE-0J-73C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1633" y="315"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Indicator QR" width="1493" height="1463"/>
+        <image name="chevron.left.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>
