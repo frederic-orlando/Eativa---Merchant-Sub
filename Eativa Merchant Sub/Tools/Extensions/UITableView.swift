@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 
 extension UITableView {
+    var isScrollable : Bool {
+        if self.contentSize.height > self.frame.height - self.contentInset.bottom{
+            return true
+        }
+        else {
+            return false
+        }
+    }
     func reloadDataWithSelection() {
         let selectedRow = indexPathForSelectedRow
         
@@ -21,5 +29,9 @@ extension UITableView {
     func scrollToBottom() {
         let maxContentOffsetY = contentSize.height - frame.height + contentInset.bottom
         setContentOffset(CGPoint(x: 0, y: maxContentOffsetY), animated: true)
-    } 
+    }
+    
+    func scrollToTop() {
+        self.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+    }
 }

@@ -9,20 +9,27 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var tableView: UITableView!
+    var tableView : UITableView!
     
     var transactions : [Transaction] = [] {
         didSet {
-            viewModel.transactions = transactions
-        }
-    }
-    var status : Int! {
-        didSet {
-            viewModel.status = status
+            transactionViewModel.transactions = transactions
         }
     }
     
-    fileprivate let viewModel = DetailViewModel()
+    var status : Int! {
+        didSet {
+            transactionViewModel.status = status
+        }
+    }
+    
+    var timer: Timer?
+    
+    var type : MasterViewModelItemType?
+    
+    fileprivate let transactionViewModel = DetailViewModel()
+    fileprivate let menuViewModel = MenuViewModel()
     
     var masterViewController : MasterViewController? {
         let splitVC = splitViewController!.viewControllers.count
@@ -36,7 +43,7 @@ class DetailViewController: UIViewController {
     }
     
     var hasParentView : Bool {
-        if let vc = navigationController?.viewControllers.first as? MasterViewController {
+        if (navigationController?.viewControllers.first as? MasterViewController) != nil {
             return true
         }
         else {
@@ -47,12 +54,15 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let interfaceIdiom = UIDevice.current.userInterfaceIdiom
+        if type == nil {
+            type = .transaction
+        }
+        
+        transactionViewModel.vc = self
+        menuViewModel.vc = self
         
         if interfaceIdiom == .phone && !hasParentView {
             let vc = UIStoryboard.getController(from: "Main", withIdentifier: "masterView")
-            print(CurrentUser.name)
-            vc.title = CurrentUser.name
             UIApplication.changeRoot(to: vc)
         }
         else {
@@ -60,17 +70,74 @@ class DetailViewController: UIViewController {
         }
         
         setupTableView()
+        setupTimer()
         view.layoutIfNeeded()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if timer != nil {
+            timer!.invalidate()
+        }
     }
     
     func setupTableView() {
-        tableView.dataSource = viewModel
-        tableView.delegate = self
+        tableView = UITableView(frame: view.bounds, style: .insetGrouped)
+        
+        tableView.fitTo(view: view)
+
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        switch type {
+        case .transaction:
+            
+            tableView.dataSource = transactionViewModel
+            tableView.delegate = transactionViewModel
+            tableView.register(TransactionCell.nib, forCellReuseIdentifier: TransactionCell.identifier)
+        case .menu:
+            tableView.dataSource = menuViewModel
+            tableView.delegate = menuViewModel
+            
+            tableView.register(MenuHeaderView.nib, forHeaderFooterViewReuseIdentifier: MenuHeaderView.identifier)
+            tableView.register(MenuCell.nib, forCellReuseIdentifier: MenuCell.identifier)
+        default:
+            break
+        }
         
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.tableFooterView = UIView()
-        tableView.register(TransactionCell.nib, forCellReuseIdentifier: TransactionCell.identifier)
+        tableView.reloadData()
+
+        if !tableView.visibleCells.isEmpty{
+            tableView.scrollToTop()
+        }
+    }
+    
+    func setupTimer() {
+        print(self.title)
+        if type == .transaction && self.title == "On Process" {
+            timer = Timer(fireAt: Date().roundedByTenMinute, interval: 600, target: self, selector: #selector(checkReminder), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer!, forMode: .common)
+            timer!.tolerance = 0.1
+        }
+    }
+    
+    @objc func checkReminder() {
+        guard let visibleIndexPaths = tableView.indexPathsForVisibleRows else {
+            return
+        }
+        
+        for indexPath in visibleIndexPaths {
+            if let cell = tableView.cellForRow(at: indexPath) as? TransactionCell {
+                if !cell.transaction.isOnReminder {
+                    cell.checkReminder()
+                }
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -89,41 +156,8 @@ class DetailViewController: UIViewController {
     }
 }
 
-extension DetailViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension DetailViewController : TransactionCellDelegate {
+    func didSelectCell(indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetail", sender: transactions[indexPath.section])
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let cell = tableView.cellForRow(at: indexPath) as! TransactionCell
-        
-        if cell.transaction.isOnReminder && cell.transaction.status == 2{
-            let contextItem = UIContextualAction(style: .normal, title: "Dismiss") { (contextualAction, view, completion) in
-                
-                cell.transaction.isOnReminder = false
-                cell.refreshColor()
-                
-                completion(true)
-            }
-            
-            contextItem.backgroundColor = .systemRed
-
-            let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
-
-            //swipeActions.performsFirstActionWithFullSwipe = false
-            
-            return swipeActions
-        }
-
-        return nil
     }
 }

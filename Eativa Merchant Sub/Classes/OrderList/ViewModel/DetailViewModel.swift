@@ -17,12 +17,23 @@ enum DetailViewModelItemType : Int {
     case complete
 }
 
+protocol TransactionCellDelegate {
+    func didSelectCell(indexPath: IndexPath)
+}
+
 class DetailViewModelItem {
     var type : DetailViewModelItemType!
 }
 
 class DetailViewModel: NSObject {
-    var transactions : [Transaction]!
+    var vc : DetailViewController! {
+        didSet {
+            delegate = vc
+        }
+    }
+    
+    var delegate : TransactionCellDelegate!
+    var transactions : [Transaction] = []
     var item = DetailViewModelItem()
     var status : Int! {
         didSet {
@@ -30,18 +41,13 @@ class DetailViewModel: NSObject {
         }
     }
     var rowCount : Int {
-        return transactions!.count
+        return transactions.count
     }
 }
 
 extension DetailViewModel : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if transactions == nil {
-            return 0
-        }
-        else {
             return transactions.count
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,7 +56,7 @@ extension DetailViewModel : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TransactionCell.identifier, for: indexPath) as! TransactionCell
-        let transaction = transactions![indexPath.section]
+        let transaction = transactions[indexPath.section]
         var color : UIColor = .systemGray4
         switch item.type {
         case .pending, .waiting:
@@ -68,5 +74,48 @@ extension DetailViewModel : UITableViewDataSource {
         cell.colorView.backgroundColor = color
         
         return cell
+    }
+}
+
+extension DetailViewModel : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate.didSelectCell(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let cell = tableView.cellForRow(at: indexPath) as! TransactionCell
+        
+        if cell.transaction.isOnReminder && cell.transaction.status == 2{
+            let contextItem = UIContextualAction(style: .normal, title: "Dismiss") { (contextualAction, view, completion) in
+                
+                cell.transaction.isOnReminder = false
+                cell.transaction.isReminderDismiss = true
+                
+                APIService.put(.transactions, id: cell.transaction.id!, parameter: [
+                    "isReminderDismiss" : true
+                ])
+                
+                cell.refreshColor()
+                
+                completion(true)
+            }
+            
+            contextItem.backgroundColor = .systemRed
+
+            let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+            
+            return swipeActions
+        }
+
+        return nil
     }
 }

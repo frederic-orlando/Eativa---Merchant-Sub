@@ -9,10 +9,10 @@
 import Foundation
 
 extension Date {
-    var plusSevenGMT : Date {
-        let modifiedDate = Calendar.current.date(byAdding: .hour, value: 7, to: self)!
-        return modifiedDate
-    }
+//    var plusSevenGMT : Date {
+//        let modifiedDate = Calendar.current.date(byAdding: .hour, value: 7, to: self)!
+//        return modifiedDate
+//    }
     
     var timeString : String {
         let formatter = DateFormatter()
@@ -24,35 +24,26 @@ extension Date {
         return formatter.string(from: self)
     }
     
-    static func timeFrom(string : String) -> Date {
-        let formatter = DateFormatter()
+//    static func timeFrom(string : String) -> Date {
+//        let formatter = DateFormatter()
+//
+//        formatter.locale = Locale(identifier: "en_US_POSIX")
+//
+//        formatter.dateFormat = "HH:mm"
+//
+//        return formatter.date(from: string)!
+//    }
+    var roundedByTenMinute : Date {
+        let rounded = Date(timeIntervalSinceReferenceDate: (self.timeIntervalSinceReferenceDate / 600.0).rounded(.up) * 600.0)
+        print("Rounded Date: ", rounded)
         
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        formatter.dateFormat = "HH:mm"
-        
-        return formatter.date(from: string)!
+        return rounded
     }
     
-    
-    // Need Fix from Customer side
-    func changeDate(modifierDate : Date) -> Date {
-        let calendar = Calendar.current
-        let day = calendar.component(.day, from: modifierDate)
-        let month = calendar.component(.month, from: modifierDate)
-        let year = calendar.component(.year, from: modifierDate)
-        let hour = calendar.component(.hour, from: self)
-        let minute = calendar.component(.minute, from: self)
+    var roundedByOneMinute : Date {
+        let rounded = Date(timeIntervalSinceReferenceDate: (self.timeIntervalSinceReferenceDate / 60.0).rounded(.down) * 60.0)
+        print("Rounded One Minute: ", rounded)
         
-        var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
-
-        component.year = year
-        component.month = month
-        component.day = day
-        
-        component.hour = hour
-        component.minute = minute
-        
-        return calendar.date(from: component)!
+        return rounded
     }
 }

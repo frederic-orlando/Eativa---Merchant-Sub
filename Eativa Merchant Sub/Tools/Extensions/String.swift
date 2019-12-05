@@ -13,35 +13,22 @@ extension String {
     var timeString : String {
         let formatter = DateFormatter()
         
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        formatter.dateFormat = "HH:mm:ss"
-        
-        let date = formatter.date(from: self)!
+        //formatter.locale = Locale(identifier: "en_US_POSIX")
         
         formatter.dateFormat = "HH:mm"
         
-        return formatter.string(from: date)
-    }
-    
-    var time : Date {
-        let formatter = DateFormatter()
-        
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        formatter.dateFormat = "HH:mm:ss"
-        
-        return formatter.date(from: self)!
+        return formatter.string(from: self.date)
     }
     
     var date : Date {
         let formatter = DateFormatter()
         
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        
+        //formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let date = formatter.date(from: self)!
         
-        return formatter.date(from: self)!
+        return date
     }
     
     var creationDate: String {
@@ -50,11 +37,10 @@ extension String {
         formatter.locale = Locale(identifier: "en_US_POSIX")
         
         let date = self.date
-        let modifiedDate = date.plusSevenGMT
         
         formatter.dateFormat = "dd MMMM yyyy '| Order Time:' HH.mm"
         
-        return formatter.string(from: modifiedDate)
+        return formatter.string(from: date)
     }
     
     var encrypted : String {

@@ -29,9 +29,6 @@ final class PusherChannels: PusherDelegate {
         // subscribe to channel
         self.channel = pusher.subscribe(channelName: channel)
         pusher.connect()
-
-        print("pusher coonnect done")
-
     }
     
     class func removePushChannel(channel : String) {

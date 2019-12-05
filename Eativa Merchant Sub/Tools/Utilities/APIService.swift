@@ -334,11 +334,12 @@ struct APIService {
             case 200:
                 let jsonData = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:String]
 
-//                PusherBeams.removeDeviceInterest(pushInterest: CurrentUser.id)
-//                PusherChannels.pusher.unsubscribeAll()
+                PusherBeams.removeDeviceInterest(pushInterest: CurrentUser.id)
+                PusherChannels.pusher.unsubscribeAll()
                 
                 let id  = jsonData["id"]!
-                let name = jsonData["name"]!
+                //let name = jsonData["name"]!
+                let name = "abc"
                 let token = jsonData["access_token"]!
                 
                 Defaults.clearUserData()

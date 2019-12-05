@@ -32,7 +32,6 @@
                     <navigationItem key="navigationItem" id="kuH-e3-NUJ"/>
                     <connections>
                         <outlet property="tableView" destination="LfP-KO-Tqb" id="ILl-bn-6yb"/>
-                        <segue destination="QYh-mW-BFc" kind="show" identifier="changeDetail" id="wBR-9t-P8i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VT-yb-XIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -44,15 +43,11 @@
             <objects>
                 <viewController storyboardIdentifier="detailView" id="QYh-mW-BFc" customClass="DetailViewController" customModule="Eativa_Merchant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BZF-5O-w6k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="974"/>
+                        <rect key="frame" x="0.0" y="0.0" width="990.5" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="30" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-Rt-WCJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="974"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="QYh-mW-BFc" id="FSd-Fz-o6B"/>
-                                    <outlet property="delegate" destination="QYh-mW-BFc" id="T2l-z1-lt4"/>
-                                </connections>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-Rt-WCJ">
+                                <rect key="frame" x="0.0" y="0.0" width="990.5" height="974"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -72,13 +67,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="fD6-Rt-WCJ" id="2oL-YK-6nv"/>
                         <segue destination="fif-sA-3mP" kind="show" identifier="showDetail" id="6kS-02-jfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ClK-vp-nnH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1535.139092240117" y="35.7421875"/>
+            <point key="canvasLocation" x="-1535" y="36"/>
         </scene>
         <!--QRScanner-->
         <scene sceneID="nhh-ke-vmO">
@@ -88,7 +82,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yo2-hI-r3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-954" y="-132"/>
+            <point key="canvasLocation" x="-1756" y="534"/>
         </scene>
         <!--OrderDetail-->
         <scene sceneID="ySM-rI-M8u">
@@ -98,7 +92,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swJ-iP-H5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-954" y="234"/>
+            <point key="canvasLocation" x="-1309" y="534"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p9h-De-Jyd">
@@ -149,7 +143,4 @@
             <point key="canvasLocation" x="-2444" y="36"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="wBR-9t-P8i"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -10,7 +10,7 @@ import UIKit
 import PusherSwift
 
 class MasterViewController: UIViewController {
-    var isAfterRealtime : Bool = false
+    var isAfterUpdate : Bool = false
     var isOnScreen : Bool = false
     
     @IBOutlet weak var tableView: UITableView!
@@ -55,7 +55,7 @@ class MasterViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         tableView.dataSource = viewModel
-        tableView.delegate = self
+        tableView.delegate = viewModel
         
         tableView.register(MasterTypeCell.nib, forCellReuseIdentifier: MasterTypeCell.identifier)
         tableView.register(MasterBtnCell.nib, forCellReuseIdentifier: MasterBtnCell.identifier)
@@ -67,7 +67,7 @@ class MasterViewController: UIViewController {
         let _ = PusherChannels.channel.bind(eventName: "Transaction", eventCallback: { (event: PusherEvent) in
             if event.data != nil {
                 if !self.isOnScreen {
-                    self.isAfterRealtime = true
+                    self.isAfterUpdate = true
                 }
                 self.attemptFetchTransactions()
                 
@@ -104,79 +104,87 @@ class MasterViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadDataWithSelection()
 
-                if self.detailViewController != nil || self.isAfterRealtime {
-                    self.refreshDetail(indexPath: nil)
+                if self.detailViewController != nil || self.isAfterUpdate {
+                    let cell = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! MasterTypeCell
+                    self.refreshDetail(selectedCell: cell, type: .transaction)
                 }
             }
         }
     }
     
-    func refreshDetail(indexPath : IndexPath?) {
-        let indexPath = indexPath ?? tableView.indexPathForSelectedRow!
-        let selectedRow = indexPath.row
-        let cell = self.tableView.cellForRow(at: indexPath) as! MasterTypeCell
-        
-        if let vc = detailViewController {
-            DispatchQueue.main.async {
-                self.closeDetail()
-                
-                let transactions = self.transactions[selectedRow]
-                vc.transactions = transactions
-                vc.status = selectedRow
-                vc.title = cell.typeLbl.text
-                vc.tableView.reloadData()
-                
-                if transactions.count > 0 {
-                    vc.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-                }
-            }
-        }
-        else {
-            DispatchQueue.main.async {
-                self.changeDetail(animated: !self.isAfterRealtime, selectedRow: selectedRow)
-            }
-        }
-        
-    }
+//    func refreshDetail(indexPath : IndexPath?) {
+//        let indexPath = indexPath ?? tableView.indexPathForSelectedRow!
+//        let selectedSection = indexPath.section
+//        let selectedRow = indexPath.row
+//        let cell = self.tableView.cellForRow(at: indexPath) as! MasterTypeCell
+//
+//        if let vc = detailViewController {
+//            DispatchQueue.main.async {
+//                self.closeDetail()
+//
+//                let transactions = self.transactions[selectedRow]
+//                vc.transactions = transactions
+//                vc.status = selectedRow
+//                vc.title = cell.typeLbl.text
+//                vc.tableView.reloadData()
+//
+//                if transactions.count > 0 {
+//                    vc.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+//                }
+//            }
+//        }
+//        else {
+//            DispatchQueue.main.async {
+//                self.changeDetail(animated: !self.isAfterRealtime, selectedRow: selectedRow)
+//            }
+//        }
+//    }
     
     func closeDetail() {
         detailViewController!.navigationController?.popViewController(animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "changeDetail" :
-            let selectedRow = sender as! Int
-            
-            if let vc = segue.destination as? DetailViewController {
-                vc.transactions = transactions[selectedRow]
-                vc.status = selectedRow
-            }
-            else { return }
-        default:
-            break
-        }
-    }
+//    func changeDetail(animated : Bool, selectedRow : Int) {
+//        let vc = UIStoryboard.getController(from: "Main", withIdentifier: "detailView") as! DetailViewController
+//        vc.transactions = transactions[selectedRow]
+//        vc.status = selectedRow
+//        isAfterRealtime = false
+//        navigationController?.pushViewController(vc, animated: animated)
+//    }
     
-    func changeDetail(animated : Bool, selectedRow : Int) {
-        let vc = UIStoryboard.getController(from: "Main", withIdentifier: "detailView") as! DetailViewController
-        vc.transactions = transactions[selectedRow]
-        vc.status = selectedRow
-        isAfterRealtime = false
-        navigationController?.pushViewController(vc, animated: animated)
+    func refreshDetail(selectedCell cell : MasterTypeCell, type : MasterViewModelItemType) {
+        let row = tableView.indexPathForSelectedRow!.row
+        
+        if let vc = detailViewController {
+            print("Refresh Detail ========")
+            switch type {
+            case .transaction:
+                let transactions = self.transactions[row]
+                vc.transactions = transactions
+                vc.status = row
+            case .menu:
+                break
+                
+            default:
+                break
+            }
+            
+            DispatchQueue.main.async {
+                vc.title = cell.typeLbl.text
+                vc.type = type
+                vc.setupTableView()
+                
+                if type == .transaction && row == 2{
+                    vc.setupTimer()
+                }
+            }
+        }
     }
 }
 
-extension MasterViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            let cell = tableView.cellForRow(at: indexPath) as! MasterTypeCell
-            navigationItem.backBarButtonItem = UIBarButtonItem(title: cell.typeLbl.text, style: .plain, target: nil, action: nil)
-            refreshDetail(indexPath: indexPath)
-        default:
-            break
-        }
+extension MasterViewController : MasterTypeCellDelegate {
+    func didSelectCell(cell: MasterTypeCell, type: MasterViewModelItemType) {
+        refreshDetail(selectedCell: cell, type: type)
     }
 }
 

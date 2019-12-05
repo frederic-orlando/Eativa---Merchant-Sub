@@ -10,6 +10,13 @@
 		71EAC2485C9FDBB23C59FBA9 /* Pods_Eativa_Merchant_Sub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F65CA4B6017F6A4A8452710 /* Pods_Eativa_Merchant_Sub.framework */; };
 		9314EA39238FE78C00EB6492 /* OrderDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9314EA38238FE78C00EB6492 /* OrderDetail.storyboard */; };
 		9314EA3F238FE99700EB6492 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314EA3E238FE99700EB6492 /* OrderDetailViewController.swift */; };
+		9357905E239795910010000A /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9357905D239795910010000A /* MenuViewModel.swift */; };
+		93579061239798310010000A /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9357905F239798310010000A /* MenuCell.swift */; };
+		93579062239798310010000A /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93579060239798310010000A /* MenuCell.xib */; };
+		935790642397989C0010000A /* MenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935790632397989C0010000A /* MenuCategory.swift */; };
+		935790662397B7980010000A /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935790652397B7980010000A /* MenuHeaderView.swift */; };
+		935790682397BAB10010000A /* MenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935790672397BAB10010000A /* MenuHeaderView.xib */; };
+		9357906C2397DBB50010000A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9357906B2397DBB50010000A /* UIView.swift */; };
 		935C0D8F2390C2A40085EC73 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C0D8E2390C2A40085EC73 /* UIApplication.swift */; };
 		935C0D912390C3CE0085EC73 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C0D902390C3CE0085EC73 /* UIStoryboard.swift */; };
 		935C0D982390CDAF0085EC73 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C0D962390CDAF0085EC73 /* DetailCell.swift */; };
@@ -24,7 +31,7 @@
 		935C0DB4239112700085EC73 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C0DB3239112700085EC73 /* HeaderView.swift */; };
 		935C0DB8239117970085EC73 /* ReadyButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C0DB6239117970085EC73 /* ReadyButtonCell.swift */; };
 		935C0DB9239117970085EC73 /* ReadyButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935C0DB7239117970085EC73 /* ReadyButtonCell.xib */; };
-		936A752123922E3500CC2E79 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A752023922E3500CC2E79 /* UIView.swift */; };
+		936A752123922E3500CC2E79 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A752023922E3500CC2E79 /* UIViewController.swift */; };
 		9375EE242394B2EE00BDDBA4 /* PusherBeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375EE232394B2EE00BDDBA4 /* PusherBeams.swift */; };
 		9375EE262394B30200BDDBA4 /* PusherChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375EE252394B30200BDDBA4 /* PusherChannels.swift */; };
 		9375EE2D2394FBF600BDDBA4 /* QRScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9375EE2C2394FBF600BDDBA4 /* QRScanner.storyboard */; };
@@ -76,6 +83,13 @@
 		6F65CA4B6017F6A4A8452710 /* Pods_Eativa_Merchant_Sub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eativa_Merchant_Sub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9314EA38238FE78C00EB6492 /* OrderDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetail.storyboard; sourceTree = "<group>"; };
 		9314EA3E238FE99700EB6492 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
+		9357905D239795910010000A /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		9357905F239798310010000A /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		93579060239798310010000A /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		935790632397989C0010000A /* MenuCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategory.swift; sourceTree = "<group>"; };
+		935790652397B7980010000A /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
+		935790672397BAB10010000A /* MenuHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuHeaderView.xib; sourceTree = "<group>"; };
+		9357906B2397DBB50010000A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		935C0D8E2390C2A40085EC73 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		935C0D902390C3CE0085EC73 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		935C0D962390CDAF0085EC73 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
@@ -90,7 +104,7 @@
 		935C0DB3239112700085EC73 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		935C0DB6239117970085EC73 /* ReadyButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyButtonCell.swift; sourceTree = "<group>"; };
 		935C0DB7239117970085EC73 /* ReadyButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadyButtonCell.xib; sourceTree = "<group>"; };
-		936A752023922E3500CC2E79 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		936A752023922E3500CC2E79 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9375EE232394B2EE00BDDBA4 /* PusherBeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherBeams.swift; sourceTree = "<group>"; };
 		9375EE252394B30200BDDBA4 /* PusherChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherChannels.swift; sourceTree = "<group>"; };
 		9375EE2C2394FBF600BDDBA4 /* QRScanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRScanner.storyboard; sourceTree = "<group>"; };
@@ -185,6 +199,42 @@
 				9314EA3E238FE99700EB6492 /* OrderDetailViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		93579059239794D60010000A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9357905C239794F10010000A /* View */,
+				9357905B239794ED0010000A /* ViewModel */,
+				9357905A239794E50010000A /* ViewController */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		9357905A239794E50010000A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9357905B239794ED0010000A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9357905D239795910010000A /* MenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9357905C239794F10010000A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9357905F239798310010000A /* MenuCell.swift */,
+				93579060239798310010000A /* MenuCell.xib */,
+				935790652397B7980010000A /* MenuHeaderView.swift */,
+				935790672397BAB10010000A /* MenuHeaderView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		935C0DAC2390D7AF0085EC73 /* ViewModel */ = {
@@ -405,10 +455,11 @@
 				939DF08A238FDDC00062168B /* String.swift */,
 				935C0D8E2390C2A40085EC73 /* UIApplication.swift */,
 				935C0D902390C3CE0085EC73 /* UIStoryboard.swift */,
-				936A752023922E3500CC2E79 /* UIView.swift */,
+				936A752023922E3500CC2E79 /* UIViewController.swift */,
 				938754D72393BDA6004F709F /* UITextField.swift */,
 				9381CB882393D04F00359BF1 /* Date.swift */,
 				9381CB8A2393D25500359BF1 /* Int.swift */,
+				9357906B2397DBB50010000A /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -429,6 +480,7 @@
 				9375EE2A2394FBE000BDDBA4 /* QRScanner */,
 				939BF30A2392112A00D74D1C /* Login */,
 				9314EA37238FE77A00EB6492 /* OrderDetail */,
+				93579059239794D60010000A /* Menu */,
 				93D2E0CD238FC2C4005ABDBF /* OrderList */,
 			);
 			path = Classes;
@@ -442,6 +494,7 @@
 				939DF082238FDD1A0062168B /* Customer.swift */,
 				939DF084238FDD210062168B /* Menu.swift */,
 				939DF086238FDD2D0062168B /* Merchant.swift */,
+				935790632397989C0010000A /* MenuCategory.swift */,
 				939DF095238FDF100062168B /* User */,
 			);
 			path = Models;
@@ -555,6 +608,8 @@
 			files = (
 				9375EE2D2394FBF600BDDBA4 /* QRScanner.storyboard in Resources */,
 				93C6F154238EB09400854376 /* LaunchScreen.storyboard in Resources */,
+				93579062239798310010000A /* MenuCell.xib in Resources */,
+				935790682397BAB10010000A /* MenuHeaderView.xib in Resources */,
 				9314EA39238FE78C00EB6492 /* OrderDetail.storyboard in Resources */,
 				935C0D9D2390CDD30085EC73 /* TwoLabelCell.xib in Resources */,
 				93C6F151238EB09400854376 /* Assets.xcassets in Resources */,
@@ -625,20 +680,25 @@
 				939DF090238FDE830062168B /* APIService.swift in Sources */,
 				9375EE6223960FA500BDDBA4 /* Global Variable.swift in Sources */,
 				93C6F148238EB09300854376 /* AppDelegate.swift in Sources */,
+				93579061239798310010000A /* MenuCell.swift in Sources */,
 				9375EE6523963EC700BDDBA4 /* QRScannerViewModel.swift in Sources */,
 				939DF07F238FC8930062168B /* UIColor.swift in Sources */,
 				9314EA3F238FE99700EB6492 /* OrderDetailViewController.swift in Sources */,
 				939DF085238FDD210062168B /* Menu.swift in Sources */,
 				9381CB892393D04F00359BF1 /* Date.swift in Sources */,
 				93D2E0D3238FC3C6005ABDBF /* TransactionCell.swift in Sources */,
+				9357905E239795910010000A /* MenuViewModel.swift in Sources */,
 				93C6F173238EC7EA00854376 /* MasterViewModel.swift in Sources */,
 				93C6F16D238EC6D000854376 /* MasterBtnCell.swift in Sources */,
 				935C0DAE2390D7C30085EC73 /* OrderDetailViewModel.swift in Sources */,
+				935790642397989C0010000A /* MenuCategory.swift in Sources */,
 				93C6F160238EBA0900854376 /* MasterTypeCell.swift in Sources */,
+				935790662397B7980010000A /* MenuHeaderView.swift in Sources */,
 				939BF3112392223800D74D1C /* LoginViewController.swift in Sources */,
+				9357906C2397DBB50010000A /* UIView.swift in Sources */,
 				9375EE322394FC9A00BDDBA4 /* QRScannerViewController.swift in Sources */,
 				9375EE302394FC4700BDDBA4 /* QRScannerView.swift in Sources */,
-				936A752123922E3500CC2E79 /* UIView.swift in Sources */,
+				936A752123922E3500CC2E79 /* UIViewController.swift in Sources */,
 				9375EE242394B2EE00BDDBA4 /* PusherBeams.swift in Sources */,
 				93C6F166238EBA4E00854376 /* DetailViewController.swift in Sources */,
 				935C0D912390C3CE0085EC73 /* UIStoryboard.swift in Sources */,

@@ -16,9 +16,6 @@ class Menu : Codable {
     var isAvailable : Bool? // D
     var image : String? // D, E
     
-    //var qty : Int = 0
-    
-    
     private enum CodingKeys: String, CodingKey {
         case id
         case merchantId
@@ -35,6 +32,11 @@ class Menu : Codable {
         self.price = try container.decodeIfPresent(Int.self, forKey: .price)
         self.isAvailable = try container.decodeIfPresent(Bool.self, forKey: .isAvailable)
         self.image = try container.decodeIfPresent(String.self, forKey: .image)
+    }
+    
+    init(name : String, price : Int) {
+        self.name = name
+        self.price = price
     }
     
     func encode(to encoder: Encoder) throws {

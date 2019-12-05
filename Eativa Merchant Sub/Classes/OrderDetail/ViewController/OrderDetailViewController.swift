@@ -35,10 +35,6 @@ class OrderDetailViewController: UIViewController {
 
         viewModel.vc = self
         
-        if transaction != nil {
-            print("ada transaction")
-        }
-        
         setupContainerView()
         setupHeaderView()
         setupTableView()
@@ -93,8 +89,10 @@ class OrderDetailViewController: UIViewController {
                 tableContentInitialHeight = tableView.contentSize.height
                 
                 tableView.contentSize.height +=  keyboardHeight
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.tableView.scrollToBottom()
+                if tableView.isScrollable {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.tableView.scrollToBottom()
+                    }
                 }
                 
                 isKeyboardShowing = true
@@ -104,7 +102,7 @@ class OrderDetailViewController: UIViewController {
     
     @objc func keyboardWillHide(notification : Notification) {
         tableView.contentSize.height = tableContentInitialHeight
-        if !isScrolling && tableView.contentSize.height > tableView.frame.height - tableView.contentInset.bottom{
+        if !isScrolling && tableView.isScrollable {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.tableView.scrollToBottom()
             }

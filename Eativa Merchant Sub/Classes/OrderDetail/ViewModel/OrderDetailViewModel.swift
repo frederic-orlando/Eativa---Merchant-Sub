@@ -34,7 +34,8 @@ class OrderDetailViewModel : NSObject {
             let priceItem = OrderDetailViewModelPriceItem(prices: prices)
             items.append(priceItem)
             
-            let time = transaction.pickUpTime!.time
+            let time = transaction.pickUpTime!.date
+//            let time = Date()
             let pickerItem = OrderDetailViewModelPickerItem(pickUpTime: time)
             items.append(pickerItem)
             

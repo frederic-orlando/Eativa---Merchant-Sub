@@ -12,3 +12,9 @@ import UIKit
 var interfaceIdiom : UIUserInterfaceIdiom {
     return UIDevice.current.userInterfaceIdiom
 }
+
+var currentDate : Date {
+    let secondsOffset = TimeZone.current.secondsFromGMT()
+    let modifiedDate = Calendar.current.date(byAdding: .second, value: secondsOffset, to: Date())!
+    return modifiedDate
+}
