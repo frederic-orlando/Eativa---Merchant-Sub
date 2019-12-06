@@ -68,6 +68,7 @@
 		93D2E0D3238FC3C6005ABDBF /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D2E0D1238FC3C6005ABDBF /* TransactionCell.swift */; };
 		93D2E0D4238FC3C6005ABDBF /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D2E0D2238FC3C6005ABDBF /* TransactionCell.xib */; };
 		93D2E0D6238FC40A005ABDBF /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D2E0D5238FC40A005ABDBF /* DetailViewModel.swift */; };
+		CA0068862399FC5300713A59 /* SingupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0068852399FC5300713A59 /* SingupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 		93D2E0D1238FC3C6005ABDBF /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		93D2E0D2238FC3C6005ABDBF /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		93D2E0D5238FC40A005ABDBF /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		CA0068852399FC5300713A59 /* SingupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +353,7 @@
 		93C023B62397666D00A44973 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CA0068852399FC5300713A59 /* SingupViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				93D2E0C6238FB708005ABDBF /* Transaction.swift in Sources */,
 				939DF087238FDD2D0062168B /* Merchant.swift in Sources */,
 				9375EE262394B30200BDDBA4 /* PusherChannels.swift in Sources */,
+				CA0068862399FC5300713A59 /* SingupViewController.swift in Sources */,
 				935C0DA62390CE190085EC73 /* ConfirmationButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
