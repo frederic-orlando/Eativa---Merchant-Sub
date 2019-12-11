@@ -15,17 +15,14 @@ class TransactionCell: UITableViewCell {
     @IBOutlet weak var creationDateLbl: UILabel!
     @IBOutlet weak var pickUpTimeLbl: UILabel!
     
-    var reminderTimer = Timer()
-    
     var transaction : Transaction! {
         didSet {
             let customer = transaction.customer!
             nameAndPhoneLbl.text = "\(customer.name!) - \(customer.phone!)"
             orderNoAndPriceLbl.text = "Order No: \(transaction.orderNumber!) | \(transaction.total!.currency)"
-            pickUpTimeLbl.text = transaction.pickUpTime!.timeString
+            pickUpTimeLbl.text = transaction.pickUpTime?.timeString
             creationDateLbl.text = "\(transaction.createdAt!.creationDate)"
             checkReminder()
-            setupTimer()
         }
     }
     
@@ -49,26 +46,16 @@ class TransactionCell: UITableViewCell {
         }
     }
     
-    func setupTimer() {
-        if transaction.status == 2 && !transaction.isOnReminder {
-           reminderTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(checkReminder), userInfo: nil, repeats: true)
-        }
-    }
-    
-    @objc func checkReminder() {
-        if transaction.status == 2 {
-            let createdAt = transaction.createdAt!.date
-            let pickUpTime = transaction.pickUpTime!.time.changeDate(modifierDate: createdAt)
-            //print("\(pickUpTime), Price: \(transaction.total?.currency)")
+    func checkReminder() {
+        if transaction.status == 2 && !transaction.isReminderDismiss {
+            let pickUpTime = transaction.pickUpTime!.date
             let processingTime = transaction.processingTime
             
-            let modifiedTime = Calendar.current.date(byAdding: .minute, value: -processingTime, to: pickUpTime)!
-            
-            if Date().plusSevenGMT > modifiedTime {
-                print("\(modifiedTime), Price: \(transaction.total?.currency)")
+            let modifiedTime = Calendar.current.date(byAdding: .minute, value: -processingTime!, to: pickUpTime)!
+            if Date() > modifiedTime.roundedByOneMinute {
                 transaction.isOnReminder = true
+                
                 refreshColor()
-                reminderTimer.invalidate()
             }
         }
     }

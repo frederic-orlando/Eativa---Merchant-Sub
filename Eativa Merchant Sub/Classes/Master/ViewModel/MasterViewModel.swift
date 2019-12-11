@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 let transactionString = ["Pending", "Payment", "On Process", "Ready", "Complete"]
-let menuString = ["Menu", "Discount"]
+let menuString = ["Menu"]
 
-enum MasterViewModelItemType {
-    case transaction
-    case menu
+enum MasterViewModelItemType : String {
+    case transaction = "Transaction"
+    case menu = "Category"
     case button
 }
 
@@ -24,9 +24,20 @@ protocol MasterViewModelItem {
     var rowCount : Int { get }
 }
 
+protocol MasterTypeCellDelegate {
+    func didSelectCell(cell: MasterTypeCell, type: MasterViewModelItemType)
+}
+
 class MasterViewModel: NSObject {
     var items = [MasterViewModelItem]()
-    var vc : MasterViewController!
+    
+    var delegate : MasterTypeCellDelegate!
+    
+    var vc : MasterViewController! {
+        didSet {
+            delegate = vc
+        }
+    }
     
     var transactions : [[Transaction]] = [[],[],[],[],[]] {
         didSet {
@@ -139,7 +150,18 @@ extension MasterViewModel : UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return items[section].sectionTitle
     }
-    
+}
+
+extension MasterViewModel : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? MasterTypeCell {
+            let type = items[indexPath.section].type
+            if type != nil {
+                delegate.didSelectCell(cell: cell, type: type)
+            }
+            
+        }
+    }
 }
 
 class MasterViewModelTransactionItem : MasterViewModelItem {

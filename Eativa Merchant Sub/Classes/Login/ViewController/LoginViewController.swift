@@ -41,15 +41,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     }
     
     func setupTextField() {
-        emailTxt.addOneBtnToolBar(btnTitle: "Cancel", target: self, selector: #selector(cancelPressed))
-        passTxt.addOneBtnToolBar(btnTitle: "Cancel", target: self, selector: #selector(cancelPressed))
-        
         emailTxt.delegate = self
         passTxt.delegate = self
-    }
-    
-    @objc func cancelPressed() {
-        view.endEditing(true)
     }
     
     func setupObserver() {

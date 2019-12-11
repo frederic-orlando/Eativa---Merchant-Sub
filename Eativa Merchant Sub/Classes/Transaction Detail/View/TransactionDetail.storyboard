@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QYh-mW-BFc">
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pending-->
+        <scene sceneID="HIx-Rk-2gh">
+            <objects>
+                <viewController storyboardIdentifier="TransactionDetail" id="QYh-mW-BFc" customClass="TransactionViewController" customModule="Eativa_Merchant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BZF-5O-w6k">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="974"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dig-PC-37p">
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="974"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dig-PC-37p" secondAttribute="trailing" id="3Ss-mp-Dhe"/>
+                            <constraint firstItem="dig-PC-37p" firstAttribute="top" secondItem="BZF-5O-w6k" secondAttribute="top" id="3bt-b5-0ml"/>
+                            <constraint firstItem="dig-PC-37p" firstAttribute="leading" secondItem="BZF-5O-w6k" secondAttribute="leading" id="Fbq-qM-h98"/>
+                            <constraint firstAttribute="bottom" secondItem="dig-PC-37p" secondAttribute="bottom" id="we5-HL-rI8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f30-WW-uS6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pending" id="5eY-FR-McV">
+                        <barButtonItem key="rightBarButtonItem" title="Scan QR" id="se4-4D-Ii3">
+                            <connections>
+                                <segue destination="Xae-0s-oRU" kind="show" identifier="toScannerView" id="SVD-uo-hHK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="dig-PC-37p" id="xXx-Ab-oTD"/>
+                        <segue destination="fif-sA-3mP" kind="show" identifier="showDetail" id="6kS-02-jfb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ClK-vp-nnH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1535" y="36"/>
+        </scene>
+        <!--QRScanner-->
+        <scene sceneID="nhh-ke-vmO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QRScanner" id="Xae-0s-oRU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Tnu-eX-pAr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yo2-hI-r3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-803" y="-126"/>
+        </scene>
+        <!--OrderDetail-->
+        <scene sceneID="ySM-rI-M8u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OrderDetail" id="fif-sA-3mP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UKb-FS-3Q5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="swJ-iP-H5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-801" y="212"/>
+        </scene>
+    </scenes>
+</document>

@@ -9,19 +9,20 @@
 import Foundation
 
 class Transaction : Codable{
-    var id : String? // D
-    var orderNumber : String?
+    var id : String! // D
+    var orderNumber : String!
     var customer : Customer? // D
     var merchant : Merchant? // D
-    var customerId : String? // E
-    var merchantId : String? // E
-    var pickUpTime : String? // D, E
+    var customerId : String! // E
+    var merchantId : String! // E
+    var pickUpTime : String! // D, E
     var total : Int? // D, E
     var status : Int? // D, E
-    var details : [TransactionDetail]? // D, E
-    var createdAt : String?
+    var details : [TransactionDetail]! // D, E
+    var createdAt : String!
     var isOnReminder : Bool = false
-    var processingTime : Int = 30
+    var isReminderDismiss : Bool!
+    var processingTime : Int!
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -35,6 +36,8 @@ class Transaction : Codable{
         case status
         case details
         case createdAt
+        case processingTime
+        case isReminderDismiss
     }
     
     required init(from decoder: Decoder) throws {
@@ -49,6 +52,12 @@ class Transaction : Codable{
         self.status = try container.decodeIfPresent(Int.self, forKey: .status)
         self.details = try container.decodeIfPresent([TransactionDetail].self, forKey: .details)
         self.createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt)
+        self.processingTime = try container.decodeIfPresent(Int.self, forKey: .processingTime)
+        self.isReminderDismiss = try container.decodeIfPresent(Bool.self, forKey: .isReminderDismiss)
+        
+        if processingTime == nil {
+            processingTime = 30
+        }
     }
     
     init(merchantId : String, customerId: String) {

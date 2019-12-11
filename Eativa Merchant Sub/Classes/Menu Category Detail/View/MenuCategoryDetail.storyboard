@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eNi-19-0RF">
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="8nV-D6-LPU">
+            <objects>
+                <viewController interfaceStyle="light" id="eNi-19-0RF" customClass="MenuCategoryViewController" customModule="Eativa_Merchant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zCt-eg-CxB">
+                        <rect key="frame" x="0.0" y="0.0" width="990" height="974"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VtY-S8-1f7">
+                                <rect key="frame" x="0.0" y="0.0" width="990.5" height="974"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VtY-S8-1f7" secondAttribute="trailing" id="5rj-pI-dDO"/>
+                            <constraint firstAttribute="bottom" secondItem="VtY-S8-1f7" secondAttribute="bottom" id="OCN-TI-Pt0"/>
+                            <constraint firstItem="VtY-S8-1f7" firstAttribute="top" secondItem="zCt-eg-CxB" secondAttribute="top" id="RXl-a6-w4Q"/>
+                            <constraint firstItem="VtY-S8-1f7" firstAttribute="leading" secondItem="zCt-eg-CxB" secondAttribute="leading" id="fcY-0c-Cx8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4sH-XY-CJF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="26G-BQ-wib">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lWR-Pl-uJM"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="VtY-S8-1f7" id="rGR-g1-kiw"/>
+                        <segue destination="ndq-JW-QeM" kind="show" identifier="toMenuDetail" id="LK0-IQ-GnP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Cp-Tj-BrQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3197" y="-645"/>
+        </scene>
+        <!--MenuDetail-->
+        <scene sceneID="WQs-xq-Bod">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MenuDetail" id="ndq-JW-QeM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LIs-kr-FOv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zB-qM-2E9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2621" y="-645"/>
+        </scene>
+    </scenes>
+</document>

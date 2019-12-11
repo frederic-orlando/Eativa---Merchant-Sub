@@ -32,73 +32,13 @@
                     <navigationItem key="navigationItem" id="kuH-e3-NUJ"/>
                     <connections>
                         <outlet property="tableView" destination="LfP-KO-Tqb" id="ILl-bn-6yb"/>
-                        <segue destination="QYh-mW-BFc" kind="show" identifier="changeDetail" id="wBR-9t-P8i"/>
+                        <segue destination="bKi-ch-52W" kind="show" identifier="showTransaction" id="Qtt-nI-Ew6"/>
+                        <segue destination="SV1-4d-C9Y" kind="show" identifier="showCategory" id="eRC-zB-gY6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VT-yb-XIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1535.139092240117" y="-755.2734375"/>
-        </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="HIx-Rk-2gh">
-            <objects>
-                <viewController storyboardIdentifier="detailView" id="QYh-mW-BFc" customClass="DetailViewController" customModule="Eativa_Merchant" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BZF-5O-w6k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="974"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="30" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-Rt-WCJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="974"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="QYh-mW-BFc" id="FSd-Fz-o6B"/>
-                                    <outlet property="delegate" destination="QYh-mW-BFc" id="T2l-z1-lt4"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="fD6-Rt-WCJ" firstAttribute="leading" secondItem="BZF-5O-w6k" secondAttribute="leading" id="9aW-np-ay8"/>
-                            <constraint firstItem="fD6-Rt-WCJ" firstAttribute="top" secondItem="BZF-5O-w6k" secondAttribute="top" id="Ojf-4N-2xH"/>
-                            <constraint firstItem="fD6-Rt-WCJ" firstAttribute="bottom" secondItem="BZF-5O-w6k" secondAttribute="bottom" id="mV6-x2-U9K"/>
-                            <constraint firstAttribute="trailing" secondItem="fD6-Rt-WCJ" secondAttribute="trailing" id="oe4-9m-Rma"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="f30-WW-uS6"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5eY-FR-McV">
-                        <barButtonItem key="rightBarButtonItem" title="Scan QR" id="se4-4D-Ii3">
-                            <connections>
-                                <segue destination="Xae-0s-oRU" kind="show" identifier="toScannerView" id="SVD-uo-hHK"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="fD6-Rt-WCJ" id="2oL-YK-6nv"/>
-                        <segue destination="fif-sA-3mP" kind="show" identifier="showDetail" id="6kS-02-jfb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ClK-vp-nnH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1535.139092240117" y="35.7421875"/>
-        </scene>
-        <!--QRScanner-->
-        <scene sceneID="nhh-ke-vmO">
-            <objects>
-                <viewControllerPlaceholder storyboardName="QRScanner" id="Xae-0s-oRU" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Tnu-eX-pAr"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yo2-hI-r3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-954" y="-132"/>
-        </scene>
-        <!--OrderDetail-->
-        <scene sceneID="ySM-rI-M8u">
-            <objects>
-                <viewControllerPlaceholder storyboardName="OrderDetail" id="fif-sA-3mP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="UKb-FS-3Q5"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="swJ-iP-H5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-954" y="234"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p9h-De-Jyd">
@@ -141,15 +81,35 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="QYh-mW-BFc" kind="relationship" relationship="rootViewController" id="kVR-Eb-cVC"/>
+                        <segue destination="bKi-ch-52W" kind="relationship" relationship="rootViewController" id="5z3-c5-G7k"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOc-I8-kEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2444" y="36"/>
         </scene>
+        <!--TransactionDetail-->
+        <scene sceneID="idN-1b-oTo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TransactionDetail" id="bKi-ch-52W" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="533-nT-5xU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fsI-dt-lAH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1721" y="36"/>
+        </scene>
+        <!--CategoryDetail-->
+        <scene sceneID="rc3-Ns-UhH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CategoryDetail" id="SV1-4d-C9Y" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RgE-0l-LvT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9UO-mq-l7C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1325" y="36"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wBR-9t-P8i"/>
+        <segue reference="Qtt-nI-Ew6"/>
     </inferredMetricsTieBreakers>
 </document>

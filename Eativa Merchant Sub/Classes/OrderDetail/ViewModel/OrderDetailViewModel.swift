@@ -34,12 +34,13 @@ class OrderDetailViewModel : NSObject {
             let priceItem = OrderDetailViewModelPriceItem(prices: prices)
             items.append(priceItem)
             
-            let time = transaction.pickUpTime!.time
-            let pickerItem = OrderDetailViewModelPickerItem(pickUpTime: time)
-            items.append(pickerItem)
-            
             let paymentItem = OrderDetailViewModelPaymentItem(paymentMethod: "GO Pay")
             items.append(paymentItem)
+            
+            let time = transaction.pickUpTime!.date
+//            let time = Date()
+            let pickerItem = OrderDetailViewModelPickerItem(pickUpTime: time)
+            items.append(pickerItem)
             
             switch transaction.status {
             case 0 :
@@ -89,11 +90,17 @@ extension OrderDetailViewModel : UITableViewDataSource {
             if let item = item as? OrderDetailViewModelPickerItem, let cell = tableView.dequeueReusableCell(withIdentifier: PickerCell.identifier, for: indexPath) as? PickerCell{
                 
                 cell.delegate = vc
+                cell.row = indexPath.row
+                cell.label.text = item.labels[indexPath.row]
                 
-                cell.label.text = item.label
-                cell.item = item
+                if transaction.status != 0 {
+                    cell.pickUpTextField.isUserInteractionEnabled = false
+                }
                 
-                pickUpTextField = cell.pickUpTextField
+                if indexPath.row == 0 {
+                    cell.item = item
+                    pickUpTextField = cell.pickUpTextField
+                }
                 
                 return cell
             }
@@ -189,10 +196,10 @@ class OrderDetailViewModelPickerItem : OrderDetailViewModelItem {
     }
     
     var rowCount: Int {
-        return 1
+        return 2
     }
     
-    var label = "Pick Up Time"
+    var labels = ["Pick Up Time", "Reminder Time"]
     var pickUpTime : Date
     var newPickUpTime : Date
     
