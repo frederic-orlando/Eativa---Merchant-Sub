@@ -55,7 +55,7 @@ class OrderDetailViewController: UIViewController {
         let customer = transaction.customer!
         
         headerView.namePhoneLbl.text = "\(customer.name!) - \(customer.phone!)"
-        headerView.pickupTimeLbl.text = "Pick Up Time : \(transaction.pickUpTime!.timeString)"
+        headerView.pickupTimeLbl.text = "Pick Up Time : \(transaction.pickUpTime!.timeStringDot)"
         headerView.creationDateLbl.text = transaction.createdAt?.creationDate ?? ""
         headerView.statusLbl.text = transactionStatus[transaction.status!]
     }

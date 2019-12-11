@@ -26,6 +26,17 @@ class PickerCell: UITableViewCell {
         }
     }
     
+    var row : Int! {
+        didSet {
+            if row == 1 {
+                pickUpTextField.placeholder = "Set Reminder"
+                pickUpTextField.text = ""
+            }
+            
+            setupDatePickerInput()
+        }
+    }
+    
     var initialTime : Date! {
            didSet {
                initialTimeLbl.text = initialTime.timeString
@@ -45,7 +56,6 @@ class PickerCell: UITableViewCell {
         timeChangesView.isHidden = true
 
         pickUpTextField.addOneBtnToolBar(btnTitle: "Done", target: self, selector: #selector(donePressed))
-        setupDatePickerInput()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,10 +65,21 @@ class PickerCell: UITableViewCell {
     func setupDatePickerInput() {
         let datePicker : UIDatePicker = {
             let picker = UIDatePicker()
-            picker.datePickerMode = .time
+            
+            var mode : UIDatePicker.Mode
+            
+            if row == 0 {
+                mode = .time
+                picker.addTarget(self, action: #selector(timePickerChanged), for: .valueChanged)
+            }
+            else {
+                mode = .countDownTimer
+                picker.addTarget(self, action: #selector(countDownPickerChanged), for: .valueChanged)
+            }
+            
+            picker.datePickerMode = mode
             
             picker.minuteInterval = 10
-            picker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
             
             return picker
         }()
@@ -66,7 +87,7 @@ class PickerCell: UITableViewCell {
         pickUpTextField.inputView = datePicker
     }
     
-    @objc func datePickerChanged(_ sender : UIDatePicker) {
+    @objc func timePickerChanged(_ sender : UIDatePicker) {
         let newTime = sender.date
         
         timeChangesView.isHidden = newTime.timeString == pickUpTime.timeString
@@ -74,6 +95,14 @@ class PickerCell: UITableViewCell {
         item.newPickUpTime = newTime
         pickUpTextField.text = newTime.timeString
         delegate.didChangePickUpTime(newTime: newTime)
+    }
+    
+    @objc func countDownPickerChanged(_ sender : UIDatePicker) {
+        DispatchQueue.main.async {
+            let minutes = Int(sender.countDownDuration / 60)
+            
+            self.pickUpTextField.text = "\(minutes) minute(s)"
+        }
     }
     
     @objc func donePressed() {

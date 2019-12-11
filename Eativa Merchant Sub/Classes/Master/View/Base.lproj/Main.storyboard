@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xRk-bT-PR7">
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Master View Controller-->
+        <scene sceneID="eMj-lk-EHu">
+            <objects>
+                <viewController id="rDc-0M-sqf" customClass="MasterViewController" customModule="Eativa_Merchant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MlP-y1-Ucn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="974"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="LfP-KO-Tqb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="974"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LfP-KO-Tqb" firstAttribute="trailing" secondItem="MlP-y1-Ucn" secondAttribute="trailing" id="Ee3-UF-EKL"/>
+                            <constraint firstItem="LfP-KO-Tqb" firstAttribute="leading" secondItem="MlP-y1-Ucn" secondAttribute="leading" id="HsQ-i7-St7"/>
+                            <constraint firstItem="LfP-KO-Tqb" firstAttribute="top" secondItem="MlP-y1-Ucn" secondAttribute="top" id="bwi-nm-oLM"/>
+                            <constraint firstItem="LfP-KO-Tqb" firstAttribute="bottom" secondItem="MlP-y1-Ucn" secondAttribute="bottom" id="cFk-y2-Goa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Si-uf-28m"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kuH-e3-NUJ"/>
+                    <connections>
+                        <outlet property="tableView" destination="LfP-KO-Tqb" id="ILl-bn-6yb"/>
+                        <segue destination="bKi-ch-52W" kind="show" identifier="showTransaction" id="Qtt-nI-Ew6"/>
+                        <segue destination="SV1-4d-C9Y" kind="show" identifier="showCategory" id="eRC-zB-gY6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0VT-yb-XIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1535.139092240117" y="-755.2734375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p9h-De-Jyd">
+            <objects>
+                <navigationController storyboardIdentifier="masterView" id="a2g-hs-tmQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="UMy-re-gg8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rDc-0M-sqf" kind="relationship" relationship="rootViewController" id="2We-K9-vH2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBS-jt-kpW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2444" y="-755"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="ID2-3R-auf">
+            <objects>
+                <splitViewController storyboardIdentifier="splitView" id="xRk-bT-PR7" customClass="SplitViewController" customModule="Eativa_Merchant" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="a2g-hs-tmQ" kind="relationship" relationship="masterViewController" id="XC7-PA-l4j"/>
+                        <segue destination="Vxj-bL-MvX" kind="relationship" relationship="detailViewController" id="dIV-vZ-UOP"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n7w-Hc-6B9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3369" y="-433"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D39-6M-18t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vxj-bL-MvX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tkZ-cP-scG"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="JUu-Aa-VEa">
+                        <rect key="frame" x="0.0" y="0.0" width="990.5" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bKi-ch-52W" kind="relationship" relationship="rootViewController" id="5z3-c5-G7k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOc-I8-kEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2444" y="36"/>
+        </scene>
+        <!--TransactionDetail-->
+        <scene sceneID="idN-1b-oTo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TransactionDetail" id="bKi-ch-52W" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="533-nT-5xU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fsI-dt-lAH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1721" y="36"/>
+        </scene>
+        <!--CategoryDetail-->
+        <scene sceneID="rc3-Ns-UhH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CategoryDetail" id="SV1-4d-C9Y" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RgE-0l-LvT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9UO-mq-l7C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1325" y="36"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qtt-nI-Ew6"/>
+    </inferredMetricsTieBreakers>
+</document>

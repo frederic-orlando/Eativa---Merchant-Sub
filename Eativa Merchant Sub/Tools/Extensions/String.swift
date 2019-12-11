@@ -20,6 +20,16 @@ extension String {
         return formatter.string(from: self.date)
     }
     
+    var timeStringDot : String {
+        let formatter = DateFormatter()
+        
+        //formatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        formatter.dateFormat = "HH.mm"
+        
+        return formatter.string(from: self.date)
+    }
+    
     var date : Date {
         let formatter = DateFormatter()
         

@@ -22,7 +22,7 @@ class Transaction : Codable{
     var createdAt : String!
     var isOnReminder : Bool = false
     var isReminderDismiss : Bool!
-    var processingTime : Int? = 30
+    var processingTime : Int!
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -54,6 +54,10 @@ class Transaction : Codable{
         self.createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt)
         self.processingTime = try container.decodeIfPresent(Int.self, forKey: .processingTime)
         self.isReminderDismiss = try container.decodeIfPresent(Bool.self, forKey: .isReminderDismiss)
+        
+        if processingTime == nil {
+            processingTime = 30
+        }
     }
     
     init(merchantId : String, customerId: String) {

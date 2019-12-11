@@ -34,9 +34,10 @@ class Menu : Codable {
         self.image = try container.decodeIfPresent(String.self, forKey: .image)
     }
     
-    init(name : String, price : Int) {
+    init(name : String, price : Int, isAvailable : Bool) {
         self.name = name
         self.price = price
+        self.isAvailable = isAvailable
     }
     
     func encode(to encoder: Encoder) throws {

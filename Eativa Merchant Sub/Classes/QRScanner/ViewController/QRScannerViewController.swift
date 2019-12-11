@@ -53,7 +53,7 @@ class QRScannerViewController: UIViewController {
         }
     }
     
-    var parentVC : DetailViewController!
+    var parentVC : TransactionViewController!
     
     var captureVideoOrientation : AVCaptureVideoOrientation? {
         let statusBarOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation

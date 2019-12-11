@@ -216,6 +216,46 @@ struct APIService {
         task.resume()
     }
     
+    // GET category menus
+    static func getCategoriesWithMenu(merchantId: String, completion: @escaping ([MenuCategory]?, Error?) -> Void) {
+        let url = URL(string: api + "/merchant/" + merchantId + "/menu/category")!
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "GET"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("Bearer \(CurrentUser.accessToken)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let response = response as? HTTPURLResponse, let data = data
+                else {
+                    completion(nil, .offline)
+                    return
+            }
+            
+            print(response.statusCode)
+            switch(response.statusCode) {
+                case 200:
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let categories = try decoder.decode([MenuCategory].self, from: data)
+                        completion(categories, nil)
+                    } catch {
+                        completion(nil, .offline)
+                    }
+                case 400:
+                    completion(nil, .badRequest)
+                default:
+                    break
+
+            }
+        }
+        
+        task.resume()
+    }
+    
     static func post(_ endpoint: Endpoint, object: Codable, completion: @escaping (String?,  Error?) -> Void) {
         let url = URL(string: api + endpoint.rawValue)!
         var request = URLRequest(url: url)
@@ -338,8 +378,7 @@ struct APIService {
                 PusherChannels.pusher.unsubscribeAll()
                 
                 let id  = jsonData["id"]!
-                //let name = jsonData["name"]!
-                let name = "abc"
+                let name = jsonData["name"]!
                 let token = jsonData["access_token"]!
                 
                 Defaults.clearUserData()
