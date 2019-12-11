@@ -82,7 +82,6 @@
 		93D2E0C9238FC230005ABDBF /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D2E0C8238FC230005ABDBF /* UITableView.swift */; };
 		93D2E0D3238FC3C6005ABDBF /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D2E0D1238FC3C6005ABDBF /* TransactionCell.swift */; };
 		93D2E0D4238FC3C6005ABDBF /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D2E0D2238FC3C6005ABDBF /* TransactionCell.xib */; };
-
 		93D2E0D6238FC40A005ABDBF /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D2E0D5238FC40A005ABDBF /* TransactionViewModel.swift */; };
 		93E911C3239F4939006BFFB7 /* MenuDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E911C2239F4939006BFFB7 /* MenuDetail.storyboard */; };
 		93E911C7239F4ACF006BFFB7 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E911C6239F4ACF006BFFB7 /* MenuDetailViewController.swift */; };
@@ -93,7 +92,7 @@
 		93E911D4239F4BF3006BFFB7 /* MenuTextSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E911D2239F4BF3006BFFB7 /* MenuTextSwitchCell.xib */; };
 		93E911D823A0966D006BFFB7 /* MenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E911D623A0966D006BFFB7 /* MenuButtonCell.swift */; };
 		93E911D923A0966D006BFFB7 /* MenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E911D723A0966D006BFFB7 /* MenuButtonCell.xib */; };
-
+		CA330E7C23A09D0D00347081 /* SingupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA330E7B23A09D0D00347081 /* SingupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,7 +175,6 @@
 		93D2E0C8238FC230005ABDBF /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		93D2E0D1238FC3C6005ABDBF /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		93D2E0D2238FC3C6005ABDBF /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
-
 		93D2E0D5238FC40A005ABDBF /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		93E911C2239F4939006BFFB7 /* MenuDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuDetail.storyboard; sourceTree = "<group>"; };
 		93E911C6239F4ACF006BFFB7 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +185,7 @@
 		93E911D2239F4BF3006BFFB7 /* MenuTextSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTextSwitchCell.xib; sourceTree = "<group>"; };
 		93E911D623A0966D006BFFB7 /* MenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCell.swift; sourceTree = "<group>"; };
 		93E911D723A0966D006BFFB7 /* MenuButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuButtonCell.xib; sourceTree = "<group>"; };
-
+		CA330E7B23A09D0D00347081 /* SingupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,7 +533,7 @@
 		93C023B62397666D00A44973 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CA0068852399FC5300713A59 /* SingupViewController.swift */,
+				CA330E7B23A09D0D00347081 /* SingupViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -877,6 +875,7 @@
 				9375EE6523963EC700BDDBA4 /* QRScannerViewModel.swift in Sources */,
 				939DF07F238FC8930062168B /* UIColor.swift in Sources */,
 				9314EA3F238FE99700EB6492 /* OrderDetailViewController.swift in Sources */,
+				CA330E7C23A09D0D00347081 /* SingupViewController.swift in Sources */,
 				9399850E239A3146003A8E41 /* AddCategoryCell.swift in Sources */,
 				939DF085238FDD210062168B /* Menu.swift in Sources */,
 				9381CB892393D04F00359BF1 /* Date.swift in Sources */,
@@ -924,7 +923,6 @@
 				939985062399FF01003A8E41 /* CategoryViewModel.swift in Sources */,
 				939DF087238FDD2D0062168B /* Merchant.swift in Sources */,
 				9375EE262394B30200BDDBA4 /* PusherChannels.swift in Sources */,
-				CA0068862399FC5300713A59 /* SingupViewController.swift in Sources */,
 				935C0DA62390CE190085EC73 /* ConfirmationButtonCell.swift in Sources */,
 				93E911CD239F4BC8006BFFB7 /* MenuTwoTextCell.swift in Sources */,
 			);

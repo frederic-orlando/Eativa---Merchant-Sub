@@ -18,13 +18,43 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dig-PC-37p">
                                 <rect key="frame" x="0.0" y="0.0" width="1366" height="974"/>
                             </tableView>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="wde-EK-0Dj">
+                                <rect key="frame" x="433" y="137" width="500" height="700"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMx-vp-i5g">
+                                        <rect key="frame" x="100" y="598.5" width="300" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AQ0-XX-kHz">
+                                        <rect key="frame" x="50" y="96" width="400" height="400"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="06X-8G-GFx"/>
+                                            <constraint firstAttribute="width" constant="400" id="Mww-VH-f7M"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="AQ0-XX-kHz" firstAttribute="leading" secondItem="wde-EK-0Dj" secondAttribute="leading" constant="50" id="1hQ-yE-gNo"/>
+                                    <constraint firstItem="tMx-vp-i5g" firstAttribute="leading" secondItem="wde-EK-0Dj" secondAttribute="leading" constant="100" id="1iU-CI-uqy"/>
+                                    <constraint firstAttribute="width" constant="500" id="997-vG-ae2"/>
+                                    <constraint firstItem="AQ0-XX-kHz" firstAttribute="top" secondItem="wde-EK-0Dj" secondAttribute="top" constant="96" id="HSe-Ue-54T"/>
+                                    <constraint firstAttribute="height" constant="700" id="I34-wq-U3C"/>
+                                    <constraint firstItem="tMx-vp-i5g" firstAttribute="top" secondItem="AQ0-XX-kHz" secondAttribute="bottom" constant="102.5" id="Ib9-uT-u6M"/>
+                                    <constraint firstAttribute="bottom" secondItem="tMx-vp-i5g" secondAttribute="bottom" constant="80" id="TXn-Hk-Wgq"/>
+                                    <constraint firstAttribute="trailing" secondItem="tMx-vp-i5g" secondAttribute="trailing" constant="100" id="u3E-aT-l4e"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dig-PC-37p" secondAttribute="trailing" id="3Ss-mp-Dhe"/>
                             <constraint firstItem="dig-PC-37p" firstAttribute="top" secondItem="BZF-5O-w6k" secondAttribute="top" id="3bt-b5-0ml"/>
                             <constraint firstItem="dig-PC-37p" firstAttribute="leading" secondItem="BZF-5O-w6k" secondAttribute="leading" id="Fbq-qM-h98"/>
+                            <constraint firstItem="wde-EK-0Dj" firstAttribute="centerX" secondItem="BZF-5O-w6k" secondAttribute="centerX" id="leR-Xl-u4z"/>
                             <constraint firstAttribute="bottom" secondItem="dig-PC-37p" secondAttribute="bottom" id="we5-HL-rI8"/>
+                            <constraint firstItem="wde-EK-0Dj" firstAttribute="centerY" secondItem="BZF-5O-w6k" secondAttribute="centerY" id="zNA-QJ-Zjk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f30-WW-uS6"/>
                     </view>
@@ -37,7 +67,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="imageState" destination="AQ0-XX-kHz" id="9p4-q1-hYb"/>
                         <outlet property="tableView" destination="dig-PC-37p" id="xXx-Ab-oTD"/>
+                        <outlet property="titleState" destination="tMx-vp-i5g" id="gtJ-vn-1nR"/>
                         <segue destination="fif-sA-3mP" kind="show" identifier="showDetail" id="6kS-02-jfb"/>
                     </connections>
                 </viewController>
