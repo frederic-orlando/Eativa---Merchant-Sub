@@ -22,16 +22,23 @@ protocol MenuDetailViewModelItem {
 
 class MenuDetailViewModel : NSObject {
     var items = [MenuDetailViewModelItem]()
-    var menu : Menu! {
+    var menu : Menu? {
         didSet {
-            let detailItem = MenuDetailViewModelDetailItem(name: menu.name!, price: menu.price!, desc: nil)
+            let name = menu?.name ?? ""
+            let price = menu?.price?.currency ?? ""
+            let desc = ""
+            let isAvailable =  false
+            
+            let menuId = menu?.id ?? ""
+            
+            let detailItem = MenuDetailViewModelDetailItem(name: name, price: price, desc: desc)
             items.append(detailItem)
             
-            let switchItem = MenuDetailViewModelSwitchItem(isAvailable: menu.isAvailable)
+            let switchItem = MenuDetailViewModelSwitchItem(isAvailable: isAvailable)
             items.append(switchItem)
             
             if menu != nil {
-                let buttonItem = MenuDetailViewModelButtonItem(menuId: menu.id!)
+                let buttonItem = MenuDetailViewModelButtonItem(menuId: menuId)
                 items.append(buttonItem)
             }
         }
@@ -56,8 +63,11 @@ extension MenuDetailViewModel : UITableViewDataSource {
         case .detail:
             if let item = item as? MenuDetailViewModelDetailItem, let cell = tableView.dequeueReusableCell(withIdentifier: MenuTwoTextCell.identifier, for: indexPath) as? MenuTwoTextCell {
                 
-                cell.label.text = item.labels[row]
+                let label = item.labels[row]
+                
+                cell.label.text = label
                 cell.textField.text = item.details[row]
+                cell.textField.placeholder = "Set " + label
                 
                 cell.textField.tag = row
                 cell.textField.delegate = vc
@@ -109,15 +119,13 @@ class MenuDetailViewModelDetailItem : MenuDetailViewModelItem {
         return labels.count
     }
     
-    var labels = ["Menu Name", "Price", "Deskripsi"]
+    var labels = ["Name", "Price", "Description"]
     
     var details : [String] = []
     
-    init(name: String, price: Int, desc: String?) {
+    init(name: String, price: String, desc: String) {
         details.append(name)
-        details.append("\(price)")
-        
-        let desc = desc ?? "None"
+        details.append(price)
         details.append(desc)
     }
 }
@@ -133,8 +141,8 @@ class MenuDetailViewModelSwitchItem : MenuDetailViewModelItem {
     
     var isAvailable : Bool!
     
-    init(isAvailable : Bool?) {
-        self.isAvailable = isAvailable ?? false
+    init(isAvailable : Bool) {
+        self.isAvailable = isAvailable
     }
 }
 

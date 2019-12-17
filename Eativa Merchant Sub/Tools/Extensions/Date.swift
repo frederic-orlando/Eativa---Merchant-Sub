@@ -24,6 +24,14 @@ extension Date {
         return formatter.string(from: self)
     }
     
+    var string : String {
+        let formatter = DateFormatter()
+        
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        return formatter.string(from: self)
+    }
 //    static func timeFrom(string : String) -> Date {
 //        let formatter = DateFormatter()
 //
