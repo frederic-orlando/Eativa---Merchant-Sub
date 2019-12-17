@@ -10,6 +10,11 @@ import UIKit
 
 class TransactionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageState: UIImageView!
+    @IBOutlet weak var titleState: UILabel!
+    
+    var emptyState = ["ongoing_state","waitingpayment_state","onprocess_state","pickup_state","history_state"]
+    var titleEmptyState = ["There are no orders yet","There are no orders yet","There are no orders yet","There are no orders yet","There are no orders yet"]
     
     var transactions : [Transaction] = [] {
         didSet {
@@ -17,7 +22,7 @@ class TransactionViewController: UIViewController {
         }
     }
     
-    var status : Int! {
+    var status : Int! = 0 {
         didSet {
             transactionViewModel.status = status
         }
@@ -63,6 +68,7 @@ class TransactionViewController: UIViewController {
         }
 
         setupTableView()
+        refreshImageState()
         view.layoutIfNeeded()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -89,6 +95,13 @@ class TransactionViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         refreshTableView()
+    }
+    
+    func refreshImageState() {
+        if imageState != nil {
+            imageState.image = UIImage(named: emptyState[status])
+            titleState.text = titleEmptyState[status]
+        }
     }
     
     func refreshTableView() {

@@ -164,6 +164,7 @@ class MasterViewController: UIViewController {
             transactionViewController.transactions = self.transactions[row]
             transactionViewController.status = row
             
+            transactionViewController.refreshImageState()
             transactionViewController.refreshTableView()
             
             if row == 2 {
