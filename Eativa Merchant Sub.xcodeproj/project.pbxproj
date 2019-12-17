@@ -92,9 +92,7 @@
 		93E911D4239F4BF3006BFFB7 /* MenuTextSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E911D2239F4BF3006BFFB7 /* MenuTextSwitchCell.xib */; };
 		93E911D823A0966D006BFFB7 /* MenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E911D623A0966D006BFFB7 /* MenuButtonCell.swift */; };
 		93E911D923A0966D006BFFB7 /* MenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E911D723A0966D006BFFB7 /* MenuButtonCell.xib */; };
-
 		CA330E7C23A09D0D00347081 /* SingupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA330E7B23A09D0D00347081 /* SingupViewController.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,9 +185,7 @@
 		93E911D2239F4BF3006BFFB7 /* MenuTextSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTextSwitchCell.xib; sourceTree = "<group>"; };
 		93E911D623A0966D006BFFB7 /* MenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCell.swift; sourceTree = "<group>"; };
 		93E911D723A0966D006BFFB7 /* MenuButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuButtonCell.xib; sourceTree = "<group>"; };
-
 		CA330E7B23A09D0D00347081 /* SingupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingupViewController.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -537,9 +533,7 @@
 		93C023B62397666D00A44973 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-
 				CA330E7B23A09D0D00347081 /* SingupViewController.swift */,
-
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1076,7 +1070,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CXXG8H769J;
+				DEVELOPMENT_TEAM = 7WQ84MA4V4;
 				INFOPLIST_FILE = "Eativa Merchant Sub/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1095,7 +1089,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CXXG8H769J;
+				DEVELOPMENT_TEAM = 7WQ84MA4V4;
 				INFOPLIST_FILE = "Eativa Merchant Sub/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

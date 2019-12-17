@@ -25,7 +25,9 @@ class OrderDetailViewController: UIViewController {
                              "Waiting for Payment",
                              "On Process",
                              "Ready to Pick Up",
-                             "Complete"]
+                             "Complete",
+                             "Canceled",
+                             "Declined"]
     var transaction : Transaction! {
         didSet {
             viewModel.transaction = transaction
