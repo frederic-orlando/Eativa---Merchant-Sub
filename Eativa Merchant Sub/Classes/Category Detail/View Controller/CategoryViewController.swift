@@ -44,11 +44,11 @@ class CategoryViewController: UIViewController {
         
         tableView.tableFooterView = UIView()
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(attemptFetchCategories), for: .valueChanged)
-        tableView.addSubview(refreshControl)
-        
-        refreshTableView()
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(attemptFetchCategories), for: .valueChanged)
+//        tableView.addSubview(refreshControl)
+//
+//        refreshTableView()
     }
     
     func refreshTableView() {
@@ -82,7 +82,7 @@ class CategoryViewController: UIViewController {
             DispatchQueue.main.async {
                 print("finish")
                 self.refreshTableView()
-                self.tableView.refreshControl?.endRefreshing()
+                //self.tableView.refreshControl?.endRefreshing()
             }
         }
     }

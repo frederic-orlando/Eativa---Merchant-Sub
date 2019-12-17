@@ -79,11 +79,10 @@ class MasterViewController: UIViewController {
     func setupPusherChannel() {
         let _ = PusherChannels.channel.bind(eventName: "Transaction", eventCallback: { (event: PusherEvent) in
             if event.data != nil {
-//                print("Realtime ==================")
-//                print(event.data)
                 if !self.isOnScreen {
                     self.isAfterUpdate = true
                 }
+                
                 self.attemptFetchTransactions()
                 
                 DispatchQueue.main.async {
@@ -94,6 +93,7 @@ class MasterViewController: UIViewController {
                 
                 let generator = UIImpactFeedbackGenerator(style: .medium)
                 generator.impactOccurred()
+                
             }
         })
     }
@@ -120,7 +120,6 @@ class MasterViewController: UIViewController {
                 self.tableView.reloadDataWithSelection()
 
                 if self.selectedType == .transaction && (self.detailViewController != nil || self.isAfterUpdate) {
-//                    let cell = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! MasterTypeCell
                     
                     self.refreshDetail(vc: self.detailViewController!, type: .transaction)
                 }
@@ -135,17 +134,7 @@ class MasterViewController: UIViewController {
         }
     }
     
-//    func changeDetail(animated : Bool, selectedRow : Int) {
-//        let vc = UIStoryboard.getController(from: "Main", withIdentifier: "detailView") as! DetailViewController
-//        vc.transactions = transactions[selectedRow]
-//        vc.status = selectedRow
-//        isAfterRealtime = false
-//        navigationController?.pushViewController(vc, animated: animated)
-//    }
-    
     func changeDetailView(selectedCell cell : MasterTypeCell, type : MasterViewModelItemType) {
-        //let row = tableView.indexPathForSelectedRow!.row
-        
         closeAllDetail()
         var vc = UIViewController()
         switch type {
@@ -211,8 +200,11 @@ extension MasterViewController : MasterTypeCellDelegate {
 
 extension MasterViewController : MasterBtnCellDelegate {
     func didPressBtn() {
+        
         Defaults.clearUserData()
         CurrentUser.reset()
+        
+        PusherChannels.pusher.disconnect()
         
         if let navigationVC = UIStoryboard.getController(from: "Login", withIdentifier: "loginVC") as? UINavigationController {
             let loginVC = navigationVC.viewControllers.first as! LoginViewController

@@ -17,7 +17,11 @@ class OrderDetailViewController: UIViewController {
     var isScrolling : Bool = false
     var tableContentInitialHeight : CGFloat = 0
     
+    var newPickUpTime : String!
+    var newReminderTime : Int!
+    
     var transactionStatus = ["Waiting for Confirmation",
+                             "",
                              "Waiting for Payment",
                              "On Process",
                              "Ready to Pick Up",
@@ -25,6 +29,7 @@ class OrderDetailViewController: UIViewController {
     var transaction : Transaction! {
         didSet {
             viewModel.transaction = transaction
+            print(transaction.processingTime)
         }
     }
     
@@ -112,27 +117,33 @@ class OrderDetailViewController: UIViewController {
 }
 
 extension OrderDetailViewController : PickerCellDelegate {
+    func didChangeReminderTime(minutes: Int) {
+        newReminderTime = minutes
+    }
+    
     func didChangePickUpTime(newTime: Date) {
         let isSuggestingValidTime = newTime > Date()
+        newPickUpTime = newTime.string
         viewModel.confirmationCell.isSuggestingNewTime = isSuggestingValidTime
     }
 }
 
 extension OrderDetailViewController : ConfirmationCellDelegate {
     func didPressSendSuggestion() {
-        let parameter = ["status" : 1]
+        print("Reminder : ", newReminderTime)
+        let parameter = ["pickUpTime" : newPickUpTime!, "processingTime" : newReminderTime, "status" : 1] as [String : Any]
         APIService.put(.transactions, id: transaction.id!, parameter: parameter)
         navigationController?.popViewController(animated: true)
     }
     
     func didPressAccept() {
-        let parameter = ["status" : 1]
+        let parameter = ["processingTime" : newReminderTime, "status" : 2]
         APIService.put(.transactions, id: transaction.id!, parameter: parameter)
         navigationController?.popViewController(animated: true)
     }
     
     func didPressDecline() {
-        let parameter = ["status" : 6]
+        let parameter = ["status" : 7]
         APIService.put(.transactions, id: transaction.id!, parameter: parameter)
         navigationController?.popViewController(animated: true)
     }
@@ -144,7 +155,7 @@ extension OrderDetailViewController : ConfirmationCellDelegate {
 
 extension OrderDetailViewController : FoodReadyCellDelegate {
     func didPressReady() {
-        let parameter = ["status" : 3]
+        let parameter = ["status" : 4]
         APIService.put(.transactions, id: transaction.id!, parameter: parameter)
         navigationController?.popViewController(animated: true)
     }

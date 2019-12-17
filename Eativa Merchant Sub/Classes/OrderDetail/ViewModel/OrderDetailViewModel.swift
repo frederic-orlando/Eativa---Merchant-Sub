@@ -39,14 +39,14 @@ class OrderDetailViewModel : NSObject {
             
             let time = transaction.pickUpTime!.date
 //            let time = Date()
-            let pickerItem = OrderDetailViewModelPickerItem(pickUpTime: time)
+            let pickerItem = OrderDetailViewModelPickerItem(pickUpTime: time, reminderTime: transaction.processingTime)
             items.append(pickerItem)
             
             switch transaction.status {
             case 0 :
                 let confirmItem = OrderDetailViewModelConfirmButtonItem()
                 items.append(confirmItem)
-            case 2 :
+            case 3 :
                 let readyItem = OrderDetailViewModelReadyButtonItem()
                 items.append(readyItem)
             default :
@@ -98,8 +98,11 @@ extension OrderDetailViewModel : UITableViewDataSource {
                 }
                 
                 if indexPath.row == 0 {
-                    cell.item = item
+                    cell.pickUpTime = item.pickUpTime
                     pickUpTextField = cell.pickUpTextField
+                }
+                else {
+                    cell.reminderTime = item.reminderTime
                 }
                 
                 return cell
@@ -107,10 +110,10 @@ extension OrderDetailViewModel : UITableViewDataSource {
         case .payment:
             if let item = item as? OrderDetailViewModelPaymentItem, let cell = tableView.dequeueReusableCell(withIdentifier: TwoLabelCell.identifier, for: indexPath) as? TwoLabelCell{
             
-            cell.titleLabel.text = item.label
-            cell.valueLabel.text = item.paymentMethod
-            
-            return cell
+                cell.titleLabel.text = item.label
+                cell.valueLabel.text = item.paymentMethod
+                
+                return cell
             }
         case .confirmButton:
             if let _ = item as? OrderDetailViewModelConfirmButtonItem, let cell = tableView.dequeueReusableCell(withIdentifier: ConfirmationButtonCell.identifier, for: indexPath) as? ConfirmationButtonCell{
@@ -201,11 +204,11 @@ class OrderDetailViewModelPickerItem : OrderDetailViewModelItem {
     
     var labels = ["Pick Up Time", "Reminder Time"]
     var pickUpTime : Date
-    var newPickUpTime : Date
+    var reminderTime : Int?
     
-    init(pickUpTime : Date) {
+    init(pickUpTime : Date, reminderTime : Int?) {
         self.pickUpTime = pickUpTime
-        self.newPickUpTime = pickUpTime
+        self.reminderTime = reminderTime
     }
 }
 
