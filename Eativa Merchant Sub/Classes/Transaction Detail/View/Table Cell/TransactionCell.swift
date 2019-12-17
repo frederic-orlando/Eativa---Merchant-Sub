@@ -14,12 +14,20 @@ class TransactionCell: UITableViewCell {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var creationDateLbl: UILabel!
     @IBOutlet weak var pickUpTimeLbl: UILabel!
+    @IBOutlet weak var titlePickUpTime: UILabel!
     
     var transaction : Transaction! {
         didSet {
             let customer = transaction.customer!
-            nameAndPhoneLbl.text = "\(customer.name!) - \(customer.phone!)"
-            orderNoAndPriceLbl.text = "Order No: \(transaction.orderNumber!) | \(transaction.total!.currency)"
+            if self.transaction.status == 5 {
+                nameAndPhoneLbl.isHidden = true
+                pickUpTimeLbl.font = pickUpTimeLbl.font.withSize(16)
+                titlePickUpTime.font = titlePickUpTime.font.withSize(18)
+            } else {
+                nameAndPhoneLbl.text = "\(customer.name!) - \(customer.phone!)"
+            }
+            
+            orderNoAndPriceLbl.text = "Order No: \(transaction.orderNumber!.uppercased()) | \(transaction.total!.currency)"
             pickUpTimeLbl.text = transaction.pickUpTime?.timeString
             creationDateLbl.text = "\(transaction.createdAt!.creationDate)"
             checkReminder()

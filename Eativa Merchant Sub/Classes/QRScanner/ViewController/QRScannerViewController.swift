@@ -35,10 +35,10 @@ class QRScannerViewController: UIViewController {
                     DispatchQueue.main.async {
                         let vc = UIStoryboard.getController(from: "OrderDetail", withIdentifier: "orderDetail") as! OrderDetailViewController
                         
-                        let parameter = ["status" : 4]
+                        let parameter = ["status" : 5]
                         APIService.put(.transactions, id: self.transaction.id!, parameter: parameter)
                         
-                        self.transaction.status = 4
+                        self.transaction.status = 5
                         vc.transaction = self.transaction
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
