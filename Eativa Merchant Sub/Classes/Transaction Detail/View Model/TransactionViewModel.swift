@@ -11,6 +11,7 @@ import UIKit
 
 enum TransactionViewModelItemType : Int {
     case pending
+    case suggestion
     case waiting
     case onProcess
     case ready
@@ -37,7 +38,11 @@ class TransactionViewModel: NSObject {
     var item = TransactionViewModelItem()
     var status : Int! {
         didSet {
+            if status > 0 {
+                status += 1
+            }
             item.type = TransactionViewModelItemType(rawValue: status)
+            print(item.type)
         }
     }
     var rowCount : Int {
@@ -67,7 +72,7 @@ extension TransactionViewModel : UITableViewDataSource {
             }
         case .ready:
             color = .systemGreen
-        case .complete, .none:
+        default:
             break
         }
         cell.transaction = transaction

@@ -31,7 +31,7 @@ class TransactionCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        if transaction.status == 2 {
+        if transaction.status == 3 {
             refreshColor()
         }
     }
@@ -47,15 +47,15 @@ class TransactionCell: UITableViewCell {
     }
     
     func checkReminder() {
-        if transaction.status == 2 && !transaction.isReminderDismiss {
+        if transaction.status == 3 && !transaction.isReminderDismiss {
             let pickUpTime = transaction.pickUpTime!.date
-            let processingTime = transaction.processingTime
-            
-            let modifiedTime = Calendar.current.date(byAdding: .minute, value: -processingTime!, to: pickUpTime)!
-            if Date() > modifiedTime.roundedByOneMinute {
-                transaction.isOnReminder = true
-                
-                refreshColor()
+            if let processingTime = transaction.processingTime {
+                let modifiedTime = Calendar.current.date(byAdding: .minute, value: -processingTime, to: pickUpTime)!
+                if Date() > modifiedTime.roundedByOneMinute {
+                    transaction.isOnReminder = true
+
+                    refreshColor()
+                }
             }
         }
     }

@@ -19,6 +19,12 @@ class MenuDetailViewController: UIViewController, UITextFieldDelegate {
     
     var isMenuEditing : Bool = false
     
+    var categoryId : String! {
+        didSet {
+            print("Category Id: ", categoryId)
+        }
+    }
+    
     var menu : Menu? {
         didSet {
             viewModel.menu = menu

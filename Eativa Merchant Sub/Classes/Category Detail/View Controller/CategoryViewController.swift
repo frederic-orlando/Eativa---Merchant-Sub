@@ -44,11 +44,11 @@ class CategoryViewController: UIViewController {
         
         tableView.tableFooterView = UIView()
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(attemptFetchCategories), for: .valueChanged)
-        tableView.addSubview(refreshControl)
-        
-        refreshTableView()
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(attemptFetchCategories), for: .valueChanged)
+//        tableView.addSubview(refreshControl)
+//
+//        refreshTableView()
     }
     
     func refreshTableView() {
@@ -82,7 +82,7 @@ class CategoryViewController: UIViewController {
             DispatchQueue.main.async {
                 print("finish")
                 self.refreshTableView()
-                self.tableView.refreshControl?.endRefreshing()
+                //self.tableView.refreshControl?.endRefreshing()
             }
         }
     }
@@ -121,13 +121,14 @@ class CategoryViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let menus = sender as! [Menu]
+        let category = sender as! MenuCategory
         let vc = segue.destination as! MenuCategoryViewController
-        vc.menus = menus
+        vc.menus = category.menus
+        vc.categoryId = category.id
     }
 }
 extension CategoryViewController : CategoryCellDelegate {
-    func didSelectCell(menus: [Menu]) {
-        performSegue(withIdentifier: "showMenu", sender: menus)
+    func didSelectCell(category: MenuCategory) {
+        performSegue(withIdentifier: "showMenu", sender: category)
     }
 }

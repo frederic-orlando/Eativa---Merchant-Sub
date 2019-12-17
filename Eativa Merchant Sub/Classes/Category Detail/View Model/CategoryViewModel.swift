@@ -49,7 +49,7 @@ class CategoryViewModelCategoryItem : CategoryViewModelItem {
 }
 
 protocol CategoryCellDelegate {
-    func didSelectCell(menus: [Menu])
+    func didSelectCell(category: MenuCategory)
 }
 
 class CategoryViewModel: NSObject {
@@ -184,9 +184,7 @@ extension CategoryViewModel : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? CategoryCell {
             if !isEditting {
-                let menus = cell.menuCategory.menus ?? []
-                
-                delegate.didSelectCell(menus: menus)
+                delegate.didSelectCell(category: cell.menuCategory)
             }
         }
     }

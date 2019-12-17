@@ -13,6 +13,8 @@ class MenuCategoryViewController: UIViewController {
     
     fileprivate var  viewModel = MenuCategoryViewModel()
     
+    var categoryId : String!
+    
     var menus : [Menu]! {
         didSet {
             viewModel.menus = menus
@@ -41,16 +43,25 @@ class MenuCategoryViewController: UIViewController {
         tableView.reloadData()
     }
     
+    func toMenuDetail(menu : Menu?) {
+        performSegue(withIdentifier: "toMenuDetail", sender: menu)
+    }
+    
+    @IBAction func addBtnPressed(_ sender: Any) {
+        toMenuDetail(menu: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let menu = sender as! Menu
+        let menu = sender as? Menu
         if let vc = segue.destination as? MenuDetailViewController {
             vc.menu = menu
+            vc.categoryId = categoryId
         }
     }
 }
 
 extension MenuCategoryViewController : MenuCategoryCellDelegate {
     func didSelectCell(menu: Menu) {
-        performSegue(withIdentifier: "toMenuDetail", sender: menu)
+        toMenuDetail(menu: menu)
     }
 }

@@ -92,7 +92,9 @@
 		93E911D4239F4BF3006BFFB7 /* MenuTextSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E911D2239F4BF3006BFFB7 /* MenuTextSwitchCell.xib */; };
 		93E911D823A0966D006BFFB7 /* MenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E911D623A0966D006BFFB7 /* MenuButtonCell.swift */; };
 		93E911D923A0966D006BFFB7 /* MenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E911D723A0966D006BFFB7 /* MenuButtonCell.xib */; };
+
 		CA330E7C23A09D0D00347081 /* SingupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA330E7B23A09D0D00347081 /* SingupViewController.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,7 +187,9 @@
 		93E911D2239F4BF3006BFFB7 /* MenuTextSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTextSwitchCell.xib; sourceTree = "<group>"; };
 		93E911D623A0966D006BFFB7 /* MenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCell.swift; sourceTree = "<group>"; };
 		93E911D723A0966D006BFFB7 /* MenuButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuButtonCell.xib; sourceTree = "<group>"; };
+
 		CA330E7B23A09D0D00347081 /* SingupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingupViewController.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,7 +537,9 @@
 		93C023B62397666D00A44973 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+
 				CA330E7B23A09D0D00347081 /* SingupViewController.swift */,
+
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -612,9 +618,9 @@
 				93C023B32397665300A44973 /* Register */,
 				9375EE2A2394FBE000BDDBA4 /* QRScanner */,
 				939BF30A2392112A00D74D1C /* Login */,
-				9314EA37238FE77A00EB6492 /* OrderDetail */,
 				93D2E0CD238FC2C4005ABDBF /* Master */,
 				939984F72399F14F003A8E41 /* Transaction Detail */,
+				9314EA37238FE77A00EB6492 /* OrderDetail */,
 				935790992398F7CA0010000A /* Category Detail */,
 				93BBADF3239E63180027AD76 /* Menu Category Detail */,
 				93E911C0239F479A006BFFB7 /* Menu Detail */,
@@ -1079,7 +1085,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fredericorlando.Eativa-Merchant";
 				PRODUCT_NAME = "Eativa Merchant";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -1098,7 +1104,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fredericorlando.Eativa-Merchant";
 				PRODUCT_NAME = "Eativa Merchant";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
