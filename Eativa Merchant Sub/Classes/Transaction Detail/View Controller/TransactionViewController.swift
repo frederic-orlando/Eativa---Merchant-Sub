@@ -10,6 +10,7 @@ import UIKit
 
 class TransactionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyStateView: UIView!
     @IBOutlet weak var imageState: UIImageView!
     @IBOutlet weak var titleState: UILabel!
     
@@ -101,6 +102,10 @@ class TransactionViewController: UIViewController {
         if imageState != nil {
             imageState.image = UIImage(named: emptyState[status])
             titleState.text = titleEmptyState[status]
+            
+            emptyStateView.isHidden = transactions.count > 0
+            
+            
         }
     }
     
