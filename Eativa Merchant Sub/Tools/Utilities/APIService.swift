@@ -10,6 +10,7 @@ import Foundation
 
 struct APIService {
     static let api = "http://167.71.194.60/api"
+//    static let api = "http://157.245.207.144/api"
     
     enum Endpoint : String {
         case customers = "/customer/"
