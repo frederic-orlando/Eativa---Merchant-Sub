@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="KGk-i7-Jjw" customClass="TransactionCell" customModule="Eativa_Merchant_Sub" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="KGk-i7-Jjw" customClass="TransactionCell" customModule="Eativa_Merchant" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -90,6 +90,7 @@
                 <outlet property="nameAndPhoneLbl" destination="hv0-FY-lx2" id="Seh-ic-qkc"/>
                 <outlet property="orderNoAndPriceLbl" destination="Vht-Ts-Fme" id="e0Q-UN-RWH"/>
                 <outlet property="pickUpTimeLbl" destination="7B6-56-mNX" id="Np7-h1-9kS"/>
+                <outlet property="titlePickUpTime" destination="6SD-V1-qC1" id="QbJ-JX-PdP"/>
             </connections>
             <point key="canvasLocation" x="155.07246376811597" y="114.50892857142857"/>
         </tableViewCell>

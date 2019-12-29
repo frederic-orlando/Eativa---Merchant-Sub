@@ -25,7 +25,9 @@ class OrderDetailViewController: UIViewController {
                              "Waiting for Payment",
                              "On Process",
                              "Ready to Pick Up",
-                             "Complete"]
+                             "Complete",
+                             "Canceled",
+                             "Declined"]
     var transaction : Transaction! {
         didSet {
             viewModel.transaction = transaction
@@ -58,8 +60,11 @@ class OrderDetailViewController: UIViewController {
     
     func setupHeaderView() {
         let customer = transaction.customer!
-        
-        headerView.namePhoneLbl.text = "\(customer.name!) - \(customer.phone!)"
+        if transaction.status == 5 {
+            headerView.namePhoneLbl.isHidden = true
+        } else {
+            headerView.namePhoneLbl.text = "\(customer.name!) - \(customer.phone!)"
+        }
         headerView.pickupTimeLbl.text = "Pick Up Time : \(transaction.pickUpTime!.timeStringDot)"
         headerView.creationDateLbl.text = transaction.createdAt?.creationDate ?? ""
         headerView.statusLbl.text = transactionStatus[transaction.status!]
