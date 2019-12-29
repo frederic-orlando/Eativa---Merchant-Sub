@@ -19,7 +19,7 @@ class TransactionCell: UITableViewCell {
     var transaction : Transaction! {
         didSet {
             let customer = transaction.customer!
-            if self.transaction.status == 5 {
+            if self.transaction.status! >= 5 {
                 nameAndPhoneLbl.isHidden = true
                 pickUpTimeLbl.font = pickUpTimeLbl.font.withSize(16)
                 titlePickUpTime.font = titlePickUpTime.font.withSize(18)
@@ -31,6 +31,7 @@ class TransactionCell: UITableViewCell {
             pickUpTimeLbl.text = transaction.pickUpTime?.timeString
             creationDateLbl.text = "\(transaction.createdAt!.creationDate)"
             checkReminder()
+            refreshColor()
         }
     }
     
@@ -39,9 +40,7 @@ class TransactionCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        if transaction.status == 3 {
-            refreshColor()
-        }
+        refreshColor()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -49,8 +48,15 @@ class TransactionCell: UITableViewCell {
     }
 
     func refreshColor() {
-        DispatchQueue.main.async {
-            self.colorView.backgroundColor = self.transaction.isOnReminder ? .systemRed : .systemGray4
+        if transaction.status! == 3 {
+            DispatchQueue.main.async {
+                self.colorView.backgroundColor = self.transaction.isOnReminder ? .systemRed : .systemGray4
+            }
+        }
+        else if transaction.status! >= 5 {
+            DispatchQueue.main.async {
+                self.colorView.backgroundColor = self.transaction.status! == 5 ? .systemGreen : .systemRed
+            }
         }
     }
     

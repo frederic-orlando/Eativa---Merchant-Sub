@@ -37,7 +37,7 @@ class MenuCell: UITableViewCell {
     func setupImageBorder() {
         let imageLayer = menuImage.layer
         imageLayer.borderWidth = 2
-        imageLayer.borderColor = menu.isAvailable! ? UIColor.green.cgColor : UIColor.red.cgColor
+        imageLayer.borderColor = menu.isAvailable! ? UIColor.systemGreen.cgColor : UIColor.systemRed.cgColor
     }
     
     static var nib : UINib {
