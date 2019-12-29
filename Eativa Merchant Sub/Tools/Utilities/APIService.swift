@@ -319,6 +319,7 @@ struct APIService {
     
     static func put(_ endpoint: Endpoint, id: String, parameter body: [String : Any]) {
         let url = URL(string: api + endpoint.rawValue + id)!
+        
         var request = URLRequest(url: url)
         
         request.httpMethod = "PUT"
@@ -340,7 +341,7 @@ struct APIService {
             
             switch(response.statusCode) {
                 case 200:
-                    break
+                    print("success")
                 case 400:
                     print(error!)
                 default:

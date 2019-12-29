@@ -9,6 +9,7 @@
 import UIKit
 
 class MenuCell: UITableViewCell {
+    @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
@@ -17,6 +18,8 @@ class MenuCell: UITableViewCell {
         didSet {
             nameLbl.text = menu.name!
             priceLbl.text = menu.price!.currency
+            
+            setupImageBorder()
         }
     }
     
@@ -29,6 +32,12 @@ class MenuCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupImageBorder() {
+        let imageLayer = menuImage.layer
+        imageLayer.borderWidth = 2
+        imageLayer.borderColor = menu.isAvailable! ? UIColor.green.cgColor : UIColor.red.cgColor
     }
     
     static var nib : UINib {

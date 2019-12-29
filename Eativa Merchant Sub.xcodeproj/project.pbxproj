@@ -36,6 +36,7 @@
 		9375EE602395670100BDDBA4 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375EE5F2395670100BDDBA4 /* SplitViewController.swift */; };
 		9375EE6223960FA500BDDBA4 /* Global Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375EE6123960FA500BDDBA4 /* Global Variable.swift */; };
 		9375EE6523963EC700BDDBA4 /* QRScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375EE6423963EC700BDDBA4 /* QRScannerViewModel.swift */; };
+		93786EC523B5DAF6006C3A30 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93786EC423B5DAF6006C3A30 /* Data.swift */; };
 		9381CB892393D04F00359BF1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381CB882393D04F00359BF1 /* Date.swift */; };
 		9381CB8B2393D25500359BF1 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381CB8A2393D25500359BF1 /* Int.swift */; };
 		938754D82393BDA6004F709F /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938754D72393BDA6004F709F /* UITextField.swift */; };
@@ -92,9 +93,7 @@
 		93E911D4239F4BF3006BFFB7 /* MenuTextSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E911D2239F4BF3006BFFB7 /* MenuTextSwitchCell.xib */; };
 		93E911D823A0966D006BFFB7 /* MenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E911D623A0966D006BFFB7 /* MenuButtonCell.swift */; };
 		93E911D923A0966D006BFFB7 /* MenuButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E911D723A0966D006BFFB7 /* MenuButtonCell.xib */; };
-
 		CA330E7C23A09D0D00347081 /* SingupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA330E7B23A09D0D00347081 /* SingupViewController.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +128,7 @@
 		9375EE5F2395670100BDDBA4 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		9375EE6123960FA500BDDBA4 /* Global Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Global Variable.swift"; sourceTree = "<group>"; };
 		9375EE6423963EC700BDDBA4 /* QRScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewModel.swift; sourceTree = "<group>"; };
+		93786EC423B5DAF6006C3A30 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9381CB882393D04F00359BF1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9381CB8A2393D25500359BF1 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		938754D72393BDA6004F709F /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -187,9 +187,7 @@
 		93E911D2239F4BF3006BFFB7 /* MenuTextSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTextSwitchCell.xib; sourceTree = "<group>"; };
 		93E911D623A0966D006BFFB7 /* MenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCell.swift; sourceTree = "<group>"; };
 		93E911D723A0966D006BFFB7 /* MenuButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuButtonCell.xib; sourceTree = "<group>"; };
-
 		CA330E7B23A09D0D00347081 /* SingupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingupViewController.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -537,9 +535,7 @@
 		93C023B62397666D00A44973 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-
 				CA330E7B23A09D0D00347081 /* SingupViewController.swift */,
-
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -599,6 +595,7 @@
 				9381CB882393D04F00359BF1 /* Date.swift */,
 				9381CB8A2393D25500359BF1 /* Int.swift */,
 				9357906B2397DBB50010000A /* UIView.swift */,
+				93786EC423B5DAF6006C3A30 /* Data.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -909,6 +906,7 @@
 				93E911D3239F4BF3006BFFB7 /* MenuTextSwitchCell.swift in Sources */,
 				9381CB8B2393D25500359BF1 /* Int.swift in Sources */,
 				935C0DA02390CDE20085EC73 /* PickerCell.swift in Sources */,
+				93786EC523B5DAF6006C3A30 /* Data.swift in Sources */,
 				93D2E0D6238FC40A005ABDBF /* TransactionViewModel.swift in Sources */,
 				935C0D9C2390CDD30085EC73 /* TwoLabelCell.swift in Sources */,
 				93C6F14A238EB09300854376 /* SceneDelegate.swift in Sources */,

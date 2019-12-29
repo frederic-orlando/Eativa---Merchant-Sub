@@ -99,7 +99,7 @@ extension TransactionViewModel : UITableViewDelegate {
         
         let cell = tableView.cellForRow(at: indexPath) as! TransactionCell
         
-        if cell.transaction.isOnReminder && cell.transaction.status == 2{
+        if cell.transaction.isOnReminder && cell.transaction.status == 3{
             let contextItem = UIContextualAction(style: .normal, title: "Dismiss") { (contextualAction, view, completion) in
                 
                 cell.transaction.isOnReminder = false

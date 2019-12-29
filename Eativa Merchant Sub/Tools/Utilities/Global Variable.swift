@@ -18,3 +18,7 @@ var currentDate : Date {
     let modifiedDate = Calendar.current.date(byAdding: .second, value: secondsOffset, to: Date())!
     return modifiedDate
 }
+
+func separator() {
+    print("\n==============================")
+}

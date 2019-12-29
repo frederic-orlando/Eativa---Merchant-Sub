@@ -43,12 +43,6 @@ class CategoryViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.tableFooterView = UIView()
-        
-//        let refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: #selector(attemptFetchCategories), for: .valueChanged)
-//        tableView.addSubview(refreshControl)
-//
-//        refreshTableView()
     }
     
     func refreshTableView() {

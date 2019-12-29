@@ -104,8 +104,6 @@ class TransactionViewController: UIViewController {
             titleState.text = titleEmptyState[status]
             
             emptyStateView.isHidden = transactions.count > 0
-            
-            
         }
     }
     

@@ -15,17 +15,24 @@ class MenuCategoryViewController: UIViewController {
     
     var categoryId : String!
     
-    var menus : [Menu]! {
-        didSet {
-            viewModel.menus = menus
-        }
-    }
+//    var menus : [Menu]! {
+//        didSet {
+//            viewModel.menus = menus
+//        }
+//    }
+    
+    var menus : [Menu]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.vc = self
         
         setupTableView()
+        
+        separator()
+        print(CurrentUser.accessToken)
+        
+        attemptFetchMenus()
     }
 
     func setupTableView() {
@@ -41,6 +48,30 @@ class MenuCategoryViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         tableView.reloadData()
+    }
+    
+    @objc func attemptFetchMenus() {
+        viewModel.fetchMenus()
+        
+        viewModel.updateLoadingStatus = {
+            
+        }
+        
+        viewModel.showAlertClosure = {
+            if let errorString = self.viewModel.errorString {
+                Alert.showErrorAlert(on: self, title: errorString) {
+                    self.viewModel.fetchMenus()
+                }
+            }
+        }
+        
+        viewModel.didFinishFetch = {
+            self.menus = self.viewModel.menus
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func toMenuDetail(menu : Menu?) {

@@ -26,7 +26,47 @@ class MenuCategoryViewModel: NSObject {
         return menus.count
     }
     
-    var menus : [Menu] = []
+    var menus : [Menu] = [] {
+        didSet {
+            self.didFinishFetch?()
+        }
+    }
+    
+    var errorString : String? {
+        didSet {
+            self.showAlertClosure?()
+        }
+    }
+
+    var isLoading : Bool = false {
+        didSet {
+            self.updateLoadingStatus?()
+        }
+    }
+
+    // Closures for callback
+    var showAlertClosure : (() -> ())?
+    var updateLoadingStatus : (() -> ())?
+    var didFinishFetch : (() -> ())?
+    
+    func fetchMenus() {
+        isLoading = true
+        
+        APIService.getMenus(merchantId: CurrentUser.id) { (menus, error) in
+            if let error = error {
+                self.errorString = error.rawValue
+                self.isLoading = false
+                
+                return
+            }
+            self.errorString = nil
+            self.isLoading = false
+            
+            self.menus = menus!
+        }
+    }
+    
+    
 }
 
 extension MenuCategoryViewModel : UITableViewDataSource {

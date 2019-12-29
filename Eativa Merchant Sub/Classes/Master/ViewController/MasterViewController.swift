@@ -135,23 +135,27 @@ class MasterViewController: UIViewController {
     }
     
     func changeDetailView(selectedCell cell : MasterTypeCell, type : MasterViewModelItemType) {
-        closeAllDetail()
-        var vc = UIViewController()
-        switch type {
-        case .transaction:
-            vc = UIStoryboard.getController(from: "TransactionDetail", withIdentifier: "TransactionDetail") as! TransactionViewController
-
-        case .menu:
-            vc = UIStoryboard.getController(from: "CategoryDetail", withIdentifier: "CategoryDetail") as! CategoryViewController
-            
-        default:
-            break
-        }
-        
         DispatchQueue.main.async {
+            self.closeAllDetail()
+            var vc = UIViewController()
+            switch type {
+            case .transaction:
+                vc = UIStoryboard.getController(from: "TransactionDetail", withIdentifier: "TransactionDetail") as! TransactionViewController
+                //print("testing : change to ", vc.description)
+            case .menu:
+    //            vc = UIStoryboard.getController(from: "CategoryDetail", withIdentifier: "CategoryDetail") as! CategoryViewController
+                vc = UIStoryboard.getController(from: "MenuCategoryDetail", withIdentifier: "MenuCategoryDetail") as! MenuCategoryViewController
+                //print("testing : change to menu")
+            default:
+                break
+            }
+
             self.detailNavigationController?.viewControllers[0] = vc
             self.detailViewController!.title = cell.typeLbl.text
-            self.refreshDetail(vc: self.detailViewController!, type: type)
+                
+            //print("testing : refresh ", self.detailViewController?.description)
+            
+            self.refreshDetail(vc: vc, type: type)
         }
     }
     

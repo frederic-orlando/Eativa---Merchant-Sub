@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol MenuSwitchDelegate {
+    func didChangeSwitch(menuId : String, isAvailable : Bool)
+}
+
 class MenuTextSwitchCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var switchControl: UISwitch!
+    
+    var delegate : MenuSwitchDelegate!
+    var menuId : String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +35,10 @@ class MenuTextSwitchCell: UITableViewCell {
         switchControl.tintColor = .systemRed
         switchControl.layer.cornerRadius = switchControl.frame.height / 2
         switchControl.backgroundColor = .systemRed
+    }
+    
+    @IBAction func didChangeSwitch(_ sender: UISwitch) {
+        delegate.didChangeSwitch(menuId: menuId, isAvailable: sender.isOn)
     }
     
     static var nib : UINib {

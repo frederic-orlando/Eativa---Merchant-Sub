@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PusherDelegate {
         return true
     }
 
+    
+    
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         if interfaceIdiom == .phone {
             return .portrait

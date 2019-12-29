@@ -34,7 +34,7 @@ class PickerCell: UITableViewCell {
     var reminderTime : Int? {
         didSet {
             if reminderTime != nil {
-                pickUpTextField.text = "\(reminderTime) minutes"
+                pickUpTextField.text = "\(reminderTime!) minutes"
             }
             else {
                 pickUpTextField.text = ""

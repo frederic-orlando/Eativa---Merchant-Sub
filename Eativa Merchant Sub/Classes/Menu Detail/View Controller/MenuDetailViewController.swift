@@ -21,7 +21,7 @@ class MenuDetailViewController: UIViewController, UITextFieldDelegate {
     
     var categoryId : String! {
         didSet {
-            print("Category Id: ", categoryId)
+            //print("Category Id: ", categoryId)
         }
     }
     
@@ -43,8 +43,15 @@ class MenuDetailViewController: UIViewController, UITextFieldDelegate {
         hideKeyboardWhenTapped()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let parentView = navigationController?.viewControllers.first as? MenuCategoryViewController {
+            parentView.attemptFetchMenus()
+        }
+    }
+    
     func setupTableView() {
-        //tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
         tableView.contentInset.bottom = 30
         
@@ -106,9 +113,22 @@ class MenuDetailViewController: UIViewController, UITextFieldDelegate {
 
 extension MenuDetailViewController : MenuButtonDelegate {
     func didPressButton(menuId: String) {
-        //delete menu
-        print("delete menu :", menuId)
+        
+        // MARK: Delete menu
+        separator()
+        print("Delete menu: ", menuId)
     }
-    
-    
+}
+
+extension MenuDetailViewController : MenuSwitchDelegate {
+    func didChangeSwitch(menuId: String, isAvailable: Bool) {
+//        separator()
+//        print(param)
+        
+        APIService.put(.menus, id: menuId, parameter: ["isAvailable" : isAvailable.description])
+        
+        // MARK: Update menu isAvailable
+//        separator()
+//        print("Menu: " + menuId + ", is available: ", isAvailable)
+    }
 }

@@ -27,19 +27,21 @@ class MenuDetailViewModel : NSObject {
             let name = menu?.name ?? ""
             let price = menu?.price?.currency ?? ""
             let desc = ""
-            let isAvailable =  false
+            let isAvailable =  menu?.isAvailable
             
             let menuId = menu?.id ?? ""
             
             let detailItem = MenuDetailViewModelDetailItem(name: name, price: price, desc: desc)
             items.append(detailItem)
             
-            let switchItem = MenuDetailViewModelSwitchItem(isAvailable: isAvailable)
+            let switchItem = MenuDetailViewModelSwitchItem(isAvailable: isAvailable!)
             items.append(switchItem)
+            
+            // Delete button
             
             if menu != nil {
                 let buttonItem = MenuDetailViewModelButtonItem(menuId: menuId)
-                items.append(buttonItem)
+                //items.append(buttonItem)
             }
         }
     }
@@ -81,7 +83,10 @@ extension MenuDetailViewModel : UITableViewDataSource {
         case .switchControl:
             if let item = item as? MenuDetailViewModelSwitchItem, let cell = tableView.dequeueReusableCell(withIdentifier: MenuTextSwitchCell.identifier, for: indexPath) as? MenuTextSwitchCell {
                 
+                cell.menuId = menu?.id!
                 cell.switchControl.isOn = item.isAvailable
+                
+                cell.delegate = vc
                 
                 return cell
             }
