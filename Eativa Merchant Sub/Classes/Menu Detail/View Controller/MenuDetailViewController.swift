@@ -21,7 +21,7 @@ class MenuDetailViewController: UIViewController, UITextFieldDelegate {
     
     var categoryId : String! {
         didSet {
-            //print("Category Id: ", categoryId)
+//            print("Category Id: ", categoryId)
         }
     }
     
@@ -46,7 +46,7 @@ class MenuDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let parentView = navigationController?.viewControllers.first as? MenuCategoryViewController {
+        if let parentView = navigationController?.viewControllers[1] as? MenuCategoryViewController {
             parentView.attemptFetchMenus()
         }
     }

@@ -14,6 +14,7 @@ class MasterViewController: UIViewController {
     var isOnScreen : Bool = false
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var openSwitch: UISwitch!
     
     var selectedType : MasterViewModelItemType?
     
@@ -49,8 +50,7 @@ class MasterViewController: UIViewController {
         
         title = CurrentUser.name
         
-        //detailViewController = detailNavigationController!.viewControllers.first!
-        
+        setupSwitch()
         setupTableView()
         attemptFetchTransactions()
     }
@@ -62,6 +62,14 @@ class MasterViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         isOnScreen = false
+    }
+    
+    func setupSwitch() {
+        openSwitch.isOn = CurrentUser.merchant.isOpen!
+        
+        openSwitch.tintColor = .systemRed
+        openSwitch.layer.cornerRadius = openSwitch.frame.height / 2
+        openSwitch.backgroundColor = .systemRed
     }
     
     func setupTableView() {
@@ -134,6 +142,8 @@ class MasterViewController: UIViewController {
         }
     }
     
+    
+    
     func changeDetailView(selectedCell cell : MasterTypeCell, type : MasterViewModelItemType) {
         DispatchQueue.main.async {
             self.closeAllDetail()
@@ -141,20 +151,16 @@ class MasterViewController: UIViewController {
             switch type {
             case .transaction:
                 vc = UIStoryboard.getController(from: "TransactionDetail", withIdentifier: "TransactionDetail") as! TransactionViewController
-                //print("testing : change to ", vc.description)
+                
             case .menu:
-    //            vc = UIStoryboard.getController(from: "CategoryDetail", withIdentifier: "CategoryDetail") as! CategoryViewController
-                vc = UIStoryboard.getController(from: "MenuCategoryDetail", withIdentifier: "MenuCategoryDetail") as! MenuCategoryViewController
-                //print("testing : change to menu")
+                vc = UIStoryboard.getController(from: "CategoryDetail", withIdentifier: "CategoryDetail") as! CategoryViewController
+                
             default:
                 break
             }
 
             self.detailNavigationController?.viewControllers[0] = vc
             self.detailViewController!.title = cell.typeLbl.text
-                
-            //print("testing : refresh ", self.detailViewController?.description)
-            
             self.refreshDetail(vc: vc, type: type)
         }
     }
@@ -186,6 +192,9 @@ class MasterViewController: UIViewController {
         vc.title = ""
         
         refreshDetail(vc: vc, type: selectedType!)
+    }
+    @IBAction func changeOpenSwitch(_ sender: UISwitch) {
+        APIService.put(.merchants, id: CurrentUser.id, parameter: ["isOpen" : sender.isOn.description])
     }
 }
 

@@ -29,9 +29,6 @@ class MenuCategoryViewController: UIViewController {
         
         setupTableView()
         
-        separator()
-        print(CurrentUser.accessToken)
-        
         attemptFetchMenus()
     }
 
@@ -51,7 +48,7 @@ class MenuCategoryViewController: UIViewController {
     }
     
     @objc func attemptFetchMenus() {
-        viewModel.fetchMenus()
+        viewModel.fetchMenus(categoryId: categoryId)
         
         viewModel.updateLoadingStatus = {
             
@@ -60,7 +57,7 @@ class MenuCategoryViewController: UIViewController {
         viewModel.showAlertClosure = {
             if let errorString = self.viewModel.errorString {
                 Alert.showErrorAlert(on: self, title: errorString) {
-                    self.viewModel.fetchMenus()
+                    self.viewModel.fetchMenus(categoryId: self.categoryId)
                 }
             }
         }

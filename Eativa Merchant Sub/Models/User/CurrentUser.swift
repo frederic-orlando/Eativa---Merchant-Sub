@@ -24,4 +24,6 @@ struct CurrentUser {
         CurrentUser.name = Defaults.getName()
         CurrentUser.accessToken = Defaults.getToken()
     }
+    
+    static var merchant : Merchant!
 }

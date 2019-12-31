@@ -9,8 +9,13 @@
 import Foundation
 
 struct APIService {
-    static let api = "http://167.71.194.60/api"
-//    static let api = "http://157.245.207.144/api"
+    
+    enum Server : String {
+        case dev = "http://167.71.194.60/api"
+        case prod = "http://157.245.207.144/api"
+    }
+    
+    static let api = Server.prod.rawValue
     
     enum Endpoint : String {
         case customers = "/customer/"
@@ -178,8 +183,9 @@ struct APIService {
     }
     
     // GET menu
-    static func getMenus(merchantId: String, completion: @escaping ([Menu]?, Error?) -> Void) {
-        let url = URL(string: api + "/merchant/" + merchantId + "/menu")!
+    static func getMenus(categoryId: String, completion: @escaping ([Menu]?, Error?) -> Void) {
+        let url = URL(string: api + "/category/menu/" + categoryId + "/menu")!
+        
         var request = URLRequest(url: url)
         
         request.httpMethod = "GET"
@@ -194,7 +200,7 @@ struct APIService {
                     completion(nil, .offline)
                     return
             }
-            
+         
             switch(response.statusCode) {
                 case 200:
                     let decoder = JSONDecoder()

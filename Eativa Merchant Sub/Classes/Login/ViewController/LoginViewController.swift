@@ -16,6 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         checkLoginStatus()
         
         setupTextField()
+        
+        setupButton()
         
         setupConstraint()
         
@@ -43,6 +46,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     func setupTextField() {
         emailTxt.delegate = self
         passTxt.delegate = self
+    }
+    
+    func setupButton() {
+        loginButton.backgroundColor = .appGreen
+        loginButton.setTitleColor(.systemOrange, for: .normal)
+        
+        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        loginButton.layer.cornerRadius = 8
     }
     
     func setupObserver() {
@@ -135,8 +147,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     }
     
     func navigateToMain() {
-        let vc = UIStoryboard.getController(from: "Main", withIdentifier: "splitView")
-        UIApplication.changeRoot(to: vc)
+        APIService.getDetail(.merchants, id: CurrentUser.id) { (merchant, error) in
+            if error != nil {
+                return
+            }
+            
+            CurrentUser.merchant = merchant as! Merchant
+            
+            DispatchQueue.main.async {
+                let vc = UIStoryboard.getController(from: "Main", withIdentifier: "splitView")
+                UIApplication.changeRoot(to: vc)
+            }
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

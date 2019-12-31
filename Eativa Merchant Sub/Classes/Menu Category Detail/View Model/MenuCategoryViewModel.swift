@@ -49,10 +49,10 @@ class MenuCategoryViewModel: NSObject {
     var updateLoadingStatus : (() -> ())?
     var didFinishFetch : (() -> ())?
     
-    func fetchMenus() {
+    func fetchMenus(categoryId : String) {
         isLoading = true
         
-        APIService.getMenus(merchantId: CurrentUser.id) { (menus, error) in
+        APIService.getMenus(categoryId: categoryId) { (menus, error) in
             if let error = error {
                 self.errorString = error.rawValue
                 self.isLoading = false

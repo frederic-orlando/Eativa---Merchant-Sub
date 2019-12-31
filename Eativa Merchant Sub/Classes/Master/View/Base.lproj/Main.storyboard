@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xRk-bT-PR7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xRk-bT-PR7">
     <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,8 +29,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Si-uf-28m"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kuH-e3-NUJ"/>
+                    <navigationItem key="navigationItem" id="kuH-e3-NUJ">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="rBp-is-0Qy">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="lyg-5f-XIe">
+                                <rect key="frame" x="308" y="9.5" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeOpenSwitch:" destination="rDc-0M-sqf" eventType="valueChanged" id="Sgb-im-kt6"/>
+                                </connections>
+                            </switch>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="openSwitch" destination="lyg-5f-XIe" id="Kwd-lX-O9f"/>
                         <outlet property="tableView" destination="LfP-KO-Tqb" id="ILl-bn-6yb"/>
                         <segue destination="bKi-ch-52W" kind="show" identifier="showTransaction" id="Qtt-nI-Ew6"/>
                         <segue destination="SV1-4d-C9Y" kind="show" identifier="showCategory" id="eRC-zB-gY6"/>

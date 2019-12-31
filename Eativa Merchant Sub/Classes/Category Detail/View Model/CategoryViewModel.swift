@@ -110,10 +110,6 @@ class CategoryViewModel: NSObject {
             self.errorString = nil
             self.isLoading = false
             
-            for category in categories! {
-                print(category.name!)
-            }
-            
             self.menuCategories = categories!
         }
     }
