@@ -29,6 +29,8 @@ class TransactionDetail : Codable {
         menu = try container.decodeIfPresent(Menu.self, forKey: .menu)
         qty = try container.decodeIfPresent(Int.self, forKey: .qty)
         notes = try container.decodeIfPresent(String.self, forKey: .notes)
+        
+        //notes = "ga pake cabe, bawang, saos, telor, daging, roti, dll"
     }
     
     func encode(to encoder: Encoder) throws {

@@ -19,7 +19,14 @@ class DetailCell: UITableViewCell {
             let menu = detail.menu!
             let qty = detail.qty!
             menuNameLbl.text = menu.name!
-            notesLbl.text = detail.notes ?? ""
+            
+            if detail.notes == ""  || detail.notes == nil {
+                notesLbl.isHidden = true
+            }
+            else {
+                notesLbl.text = "Notes : " + detail.notes!
+            }
+            
             qtyLbl.text = "Qty : \(qty)"
             priceLbl.text = (qty * menu.price!).currency
         }

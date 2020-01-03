@@ -15,7 +15,7 @@ struct APIService {
         case prod = "http://157.245.207.144/api"
     }
     
-    static let api = Server.prod.rawValue
+    static let api = Server.dev.rawValue
     
     enum Endpoint : String {
         case customers = "/customer/"
