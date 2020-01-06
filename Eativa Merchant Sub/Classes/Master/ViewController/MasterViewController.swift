@@ -87,11 +87,32 @@ class MasterViewController: UIViewController {
     func setupPusherChannel() {
         let _ = PusherChannels.channel.bind(eventName: "Transaction", eventCallback: { (event: PusherEvent) in
             if event.data != nil {
+                print("Data " + event.data!)
                 if !self.isOnScreen {
                     self.isAfterUpdate = true
                 }
                 
-                NotificationSound.play()
+                if event.data! == "New transaction for you" {
+                    NotificationSound.play()
+                }
+                else {
+                    let data = event.data!.data(using: .utf8)!
+                    do {
+                        let decoder = JSONDecoder()
+                        let transactions = try decoder.decode([Transaction].self, from: data)
+                        
+                        let newTransaction = transactions[1]
+                        if newTransaction.status! == 3 {
+                            NotificationSound.play()
+                        }
+                        else {
+                            print("Status Baru : \(newTransaction.status)")
+                        }
+                    } catch {
+                        print("Error JSON")
+                    }
+                }
+                
                 self.attemptFetchTransactions()
                 
                 DispatchQueue.main.async {
