@@ -91,6 +91,7 @@ class MasterViewController: UIViewController {
                     self.isAfterUpdate = true
                 }
                 
+                NotificationSound.play()
                 self.attemptFetchTransactions()
                 
                 DispatchQueue.main.async {

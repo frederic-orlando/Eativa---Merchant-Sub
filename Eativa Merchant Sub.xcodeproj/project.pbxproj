@@ -37,6 +37,8 @@
 		9375EE6223960FA500BDDBA4 /* Global Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375EE6123960FA500BDDBA4 /* Global Variable.swift */; };
 		9375EE6523963EC700BDDBA4 /* QRScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375EE6423963EC700BDDBA4 /* QRScannerViewModel.swift */; };
 		93786EC523B5DAF6006C3A30 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93786EC423B5DAF6006C3A30 /* Data.swift */; };
+		93786EF323C2F097006C3A30 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93786EF223C2F097006C3A30 /* Sound.swift */; };
+		93786EF523C2F2A8006C3A30 /* soundEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93786EF423C2F2A8006C3A30 /* soundEffect.mp3 */; };
 		9381CB892393D04F00359BF1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381CB882393D04F00359BF1 /* Date.swift */; };
 		9381CB8B2393D25500359BF1 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381CB8A2393D25500359BF1 /* Int.swift */; };
 		938754D82393BDA6004F709F /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938754D72393BDA6004F709F /* UITextField.swift */; };
@@ -129,6 +131,8 @@
 		9375EE6123960FA500BDDBA4 /* Global Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Global Variable.swift"; sourceTree = "<group>"; };
 		9375EE6423963EC700BDDBA4 /* QRScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewModel.swift; sourceTree = "<group>"; };
 		93786EC423B5DAF6006C3A30 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		93786EF223C2F097006C3A30 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		93786EF423C2F2A8006C3A30 /* soundEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundEffect.mp3; sourceTree = "<group>"; };
 		9381CB882393D04F00359BF1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9381CB8A2393D25500359BF1 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		938754D72393BDA6004F709F /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -450,6 +454,7 @@
 				9375EE252394B30200BDDBA4 /* PusherChannels.swift */,
 				9375EE5B23952E4900BDDBA4 /* ReminderAlert.swift */,
 				9375EE6123960FA500BDDBA4 /* Global Variable.swift */,
+				93786EF223C2F097006C3A30 /* Sound.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -566,6 +571,7 @@
 				93D2E0CC238FC28D005ABDBF /* Models */,
 				93D2E0CB238FC27D005ABDBF /* Classes */,
 				93C6F150238EB09400854376 /* Assets.xcassets */,
+				93786EF423C2F2A8006C3A30 /* soundEffect.mp3 */,
 				93C6F152238EB09400854376 /* LaunchScreen.storyboard */,
 				93C6F155238EB09400854376 /* Info.plist */,
 			);
@@ -816,6 +822,7 @@
 				935C0DA12390CDE20085EC73 /* PickerCell.xib in Resources */,
 				939BF30F239211BA00D74D1C /* Login.storyboard in Resources */,
 				93C023B8239766B100A44973 /* Register.storyboard in Resources */,
+				93786EF523C2F2A8006C3A30 /* soundEffect.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,6 +876,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				935C0D8F2390C2A40085EC73 /* UIApplication.swift in Sources */,
+				93786EF323C2F097006C3A30 /* Sound.swift in Sources */,
 				939DF08E238FDE3F0062168B /* Alert.swift in Sources */,
 				93BBAE00239E67400027AD76 /* MenuCell.swift in Sources */,
 				939DF090238FDE830062168B /* APIService.swift in Sources */,
